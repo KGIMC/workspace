@@ -1,0 +1,107 @@
+/* position을 absolute로 주면 해당 태그는
+    display 속성이 inline_block으로 변경 */
+
+/* 전체적인 구도 잡기
+   그리드로 영역 잡기
+   이미지 사이즈 맞추기
+   텍스트 해당 이미지에 고정시키기
+   텍스트 좌상단에 고정시키기
+   텍스트 투명도 조절
+   텍스트 opacity로 안보이게 만들기
+   마우스오버하면 텍스트 보이게 만들기
+*/
+body{
+  background-color: lightslategray;
+  width: 100vw;
+}
+
+.container{
+  width: 80%;
+  /* 퍼센트는 부모가 기준 */
+  margin: 20px auto;
+  background-color: white;
+  padding: 14px;
+  
+}
+
+.header{
+  text-align: center;
+  margin-bottom: 11px;
+}
+
+.header > span{
+  color: white;
+  background-color: lightpink;
+  font-weight: bold;
+  border-radius: 14px;
+  padding: 5px 20px;
+}
+
+.haeder > h1{
+  font-size: 2.5rem;
+  margin: 30px 0px 10px 0px;
+}
+
+.header > h1 span{
+  color: green;
+}
+
+.header > p{
+  line-height: 26px;
+}
+
+.list{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.member{
+  position: relative;
+}
+
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 이미지 맞추기 */
+  object-position: center center;
+  /* 이미지 중앙으로 맞추기  */
+}
+
+.intro{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  color: white;
+  /* top, left 설정해야 올라옴 */
+  width: 100%;
+  background-color: rgb(0, 0, 0, 0.4);
+  height: 100%;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  
+  /* display: none; */
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.member:hover .intro{
+  /* display: flex; */
+  opacity: 1;
+  visibility: visible;
+}
+
+.sns{
+  font-size: 1.5rem;
+}
+
+.sns > span:hover{
+  color: green;
+}
+

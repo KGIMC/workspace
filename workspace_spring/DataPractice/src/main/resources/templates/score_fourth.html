@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  네번째 페이지입니다.
+  <h1>학생 성적 입력 프로그램</h1>
+  <p>[[${scoreVO.name}]] 학생의 정보입니다.</p>
+  이름 : [[${scoreVO.name}]] <br>
+  학년 : [[${scoreVO.year}]]학년 <br>
+  연락처 : [[${scoreVO.tel[0]}]]-[[${scoreVO.tel[1]}]]<br>
+  성별 : [[${scoreVO.gender}]] <br>
+  국어 : [[${scoreVO.korScore}]] <br>
+  수학 : [[${scoreVO.engScore}]] <br>
+  영어 : [[${scoreVO.mathScore}]] <br>
+  평균 : [[${avg}]]<br>
+  평균 : [[${(scoreVO.korScore + scoreVO.engScore + scoreVO.mathScore) / 3.0 }]] <br>
+  <!-- html 자체에서 연산이 애초에 불가
+    thymleaf 문법 사용해서 연산함.
+
+  -->
+  <input type="button" value="처음으로 가기">
+
+  
+</body>
+</html>

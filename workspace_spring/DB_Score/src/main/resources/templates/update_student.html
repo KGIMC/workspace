@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>수정 페이지</h1>
+  <!-- form 태그 안의 input 태그 안의 value값을 가지고 넘어감. (submit을 누르면) -->
+    <form action="/updateStudent" method="post">
+      <input type="hidden" name="stuNum" th:value="${score.stuNum}">
+      학번 [[${score.stuNum}]] <br>
+      이름 <input type="text" name="stuName" th:value="${score.stuName}"> <br>
+      국어점수 <input type="text" name="korScore" th:value="${score.korScore}"> <br>
+      영어점수 <input type="text" name="engScore" th:value="${score.engScore}"> <br>
+      자기소개 <textarea name="intro">[[${score.intro}]]</textarea> <br>
+      <input type="submit" value="수정">
+    </form>
+
+</body>
+</html>

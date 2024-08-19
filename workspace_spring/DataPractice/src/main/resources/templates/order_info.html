@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>주문서</h1>
+  <h3>주문정보</h3>
+  [[${orderVO.type}]] ([[${orderVO.cnt}]]마리) <br>
+  추가사항 : 
+  <th:block th:each="option : ${orderVO.option}">
+    [[${option}]]
+  </th:block> <br>
+  주문금액 : [[${(orderVO.cnt * 10000) + (#arrays.length(orderVO.option) * 1000)}]] <br>
+  요청사항 : [[${orderVO.request}]] <br>
+
+  <h3>배달배달</h3>
+  주문자 : [[${deliveryVO.buyer}]] <br>
+  연락처 : [[${deliveryVO.tel}]] <br>
+  배달주소 : [[${deliveryVO.addr}]] 
+</body>
+</html>

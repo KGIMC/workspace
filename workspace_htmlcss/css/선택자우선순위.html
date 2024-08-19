@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="선택자우선순위.css">
+</head>
+<body>
+  
+  <p class="p1">
+    Lorem ipsum dolor sit amet.
+  </p>
+
+  <p style="color: red; background-color: black;">
+    <!-- 인라인 스타일 - 인라인은 하나의 속성으로 준 것을 의미 (하나의 선) -->
+    Lorem ipsum dolor sit amet.
+  </p>
+
+  <hr>
+    <!-- 우선순위
+      1. !important style
+      2. inline style 
+      3. 아이디 선택자
+      4. 클래스 선택자
+      5. 태그 선택자
+    -->
+
+  <div class="d1" id="d1" style="color: black;">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus, tempore?
+  </div>
+</body>
+</html>

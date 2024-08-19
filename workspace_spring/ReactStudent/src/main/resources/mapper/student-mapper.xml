@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<mapper namespace="studentMapper">
+    <resultMap id="student" type="com.green.ReactStudent.vo.StudentVO">
+        <id column="STU_NUM" property="stuNum" />
+        <result column="STU_NAME" property="stuName" />
+        <result column="KOR_SCORE" property="korScore" />
+        <result column="ENG_SCORE" property="engScore" />
+        <result column="MATH_SCORE" property="mathScore" />
+        <result column="STU_AGE" property="stuAge" />
+        <result column="STU_TEL" property="stuTel" />
+        <result column="STU_ADDR" property="stuAddr" />
+    </resultMap>
+
+
+    <select id="getStuList" resultMap="student">
+        SELECT STU_NUM
+            ,  STU_NAME
+            ,  KOR_SCORE
+            ,  ENG_SCORE
+            ,  MATH_SCORE
+        FROM react_student;
+    </select>
+
+
+    <insert id="insertStudent">
+        INSERT INTO REACT_STUDENT (
+            STU_NAME
+        ,   STU_AGE
+        ,   STU_TEL
+        ,   STU_ADDR
+        ,   KOR_SCORE
+        ,   ENG_SCORE
+        ,   MATH_SCORE
+        ) VALUES (
+            #{stuName}
+        ,   #{stuAge}
+        ,   #{stuTel}
+        ,   #{stuAddr}
+        ,   0
+        ,   0
+        ,   0
+        );
+    </insert>
+
+
+
+    <!--  학생 상세조회 -->
+    <select id="getStuDetail" resultMap="student">
+        SELECT STU_NUM
+            ,  STU_NAME
+            ,  STU_AGE
+            ,  STU_TEL
+            ,  STU_ADDR
+            ,  KOR_SCORE
+            ,  ENG_SCORE
+            ,  MATH_SCORE
+        FROM REACT_STUDENT
+        WHERE STU_NUM = #{stuNum}
+    </select>
+
+    <delete id="deleteStudent">
+        <!--  학생 번호 기준으로 삭제 -->
+        DELETE FROM react_student
+        WHERE STU_NUM = #{stuNum};
+    </delete>
+
+    <update id="updateScore">
+        UPDATE react_student
+        SET
+          KOR_SCORE = #{korScore}
+        , ENG_SCORE = #{engScore}
+        , MATH_SCORE = #{mathScore}
+          WHERE STU_NUM = #{stuNum};
+    </update>
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

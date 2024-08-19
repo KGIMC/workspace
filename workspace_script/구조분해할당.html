@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>구조분해 할당(리액트에서 사용 / 배열과 객체에서 사용하는 문법)</h2> 
+
+  <script>
+    // ---- 배열에서 구조분해할당 ---- //
+
+    // 배열에 저장된 값을 받아오는 일반적인 방법
+    const arr1 = [1, 2, 3];
+    const a = arr1[0];
+    const b = arr1[1];
+
+    // 배열에 저장된 값을 구조분해할당 문법으로 받아오기
+    const arr2 = [1, 2, 3];
+    const [a1, b1, c1] = arr2;
+    console.log(`a1 = ${a1}`);
+    
+    // 생성하는 변수의 개수가 다른 경우
+    const arr3 = [1, 2, 3];
+    const [a2, b2] = arr3; // a2 = 1, b2 = 2
+    const [a3, b3, c3, d3] = arr3; // a3 = 1, b3 = 2, c3 = 3
+    console.log(`d3 = ${d3}`); // undefined - 정의되지 않음.
+
+    // ---- 객체에서의 구조분해할당 ---- //
+
+  const board = {
+    // key : value
+    boardNum : 1,
+    title : '게시글1',
+    readCnt : 5
+  };
+
+  // 객체 정보 출력
+  console.log(board); // 전체 출력
+  console.log(board.title); // board 안의 title만 출력
+  console.log(board['title']) // 리액트 할때 종종 나오는 문법
+  
+  // 객체 안의 데이터 변경
+  board.boardNum = 2;
+  board['readCnt'] = 3;
+  console.log(board);
+
+  const member = {
+    name : 'kim',
+    age : 20,
+    tel : '010-1111-2222'
+  };
+
+  // 객체의 데이터를 변수에 저장하는 일반적인 방식
+  const n1 = member.name; // kim -> kim이라는 key를 가진 value값을 출력
+  const t1 = member.tel; // tel
+  // 위 방법은 불편한 방식
+
+  // 객체의 구조분해할당
+  const {name, age, tel} = member;
+  // 객체는 순번이 없고, key라는 값이 있음.
+  // 객체의 구조분해할당을 위해 만드는 변수는 객체의 key값과 일치해야함.
+  console.log(`name = ${name}`);
+
+  // key 불일치로 데이터 안 받아옴
+  const {nn, aa, tt} = member;
+  console.log(`nn= ${nn}`);
+
+  const student = {
+    stuNum : 1,
+    korScore : 90,
+    engScore : 80
+  };
+
+
+  const {stuNum, korScore, engScore} = student;
+  console.log(`stuNum = ${stuNum}`);
+
+  // 객체의 구조분해 할당 문법에서 변수명을 변경하는 문법
+  const {stuNum : num, korScore : kor} = student;
+  console.log(`num = ${num}`);
+  // key값 중복해서 사용하는건 최소화
+  const eng = student.engScore;
+ 
+  </script>
+
+</body>
+</html>

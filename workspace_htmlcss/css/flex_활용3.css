@@ -1,0 +1,41 @@
+.container{
+  background-color: aliceblue;
+  color: black;
+  width: 100%;
+  height: 700px;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.header{
+  background-color: aquamarine;
+  color: black;
+  width: 100%;
+  height: 250px;
+  line-height: 250px;
+}
+
+.main{
+  display: flex;
+}
+
+.main > div:first-child{
+  flex-basis: 40%;
+  background-color: brown;
+  height: 450px;
+}
+
+.side > div:nth-child(1){
+  flex-direction: column;
+  background-color: red;
+}
+
+.side > div:nth-child(2){
+  flex-direction: column;
+  background-color: yellow;
+  width: 100%;
+}
+.side > div:nth-child(3){
+  flex-direction: column;
+  background-color: blue;
+}

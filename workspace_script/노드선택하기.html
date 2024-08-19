@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 노드 -> html 태그 -->
+   <input type="text" id="a"> 
+   <!-- input 태그의 id는 a 
+        input 태그 자체를 선택할 수 있게 만든 코드(상황) -->
+   <input type="button" value="값 읽기" onclick="readValue()">
+   <!-- 값 읽어오기 -->
+   <input type="button" value="값 세팅" onclick="setValue()">
+   <!-- 값 세팅하기 -->
+  <script>
+    // id가 a태그를 선택하겠습니다. 
+    // const inputTag = document.querySelector('#a');
+    // console.log(inputTag);
+    function readValue(){
+      const tag = document.querySelector('#a');  // 태그를 선택한 것
+      console.log(tag.type); // () 안의 좌측 선택한 것. 우측 속성값. text를 가져옴
+      console.log(tag.id); // () 안의 좌측 선택한 것. 우측 속성값. a를 가져옴
+      console.log(tag.value);
+    }
+
+    function setValue(){
+      const a = document.querySelector('#a');
+      a.value = 30;
+      
+    }
+  </script>
+</body>
+</html>

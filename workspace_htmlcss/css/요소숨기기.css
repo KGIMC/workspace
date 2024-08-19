@@ -1,0 +1,13 @@
+.img1{
+  /* visible - 보임 */
+  /* hidden - 사라짐 */
+  visibility: visible;
+}
+
+.img2{
+  /* display: none; */
+}
+
+.img3{
+  opacity: 0;
+}

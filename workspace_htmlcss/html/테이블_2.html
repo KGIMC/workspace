@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    table{
+      border-collapse: collapse;
+      border: 1px solid black;
+      width: 200px;
+      text-align: center;
+    }
+    tr, td{
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<!-- table 태그 안에는 thead, tbody, tfoot, tr, caption, colgroup 태그만 올 수 있다.
+또한, thead는 머릿말을 표시하는 의미로 위치에 상관없이 맨 위에 표시된다.
+추가로, tfoof는 끝맺음을 표시하는 의미로 위치에 상관없이 맽 밑에 표시된다.
+caption - table에 대한 정보의 제목 표시를 위한 느낌
+colgroup - 전체 노비 조정을 위한 태그
+col -  각 열마다 너비 조정 느낌
+-->
+<body>
+  <table>
+    <colgroup>
+      <col width="50%">
+      <col width="20%">
+      <col width="*">
+    </colgroup>
+    <caption>학 생 정 보</caption>
+    <thead>
+      <tr>
+      <td>이름</td>
+      <td>나이</td>
+      <td>점수</td>
+      </tr>
+    </thead>
+  <tbody>
+      <tr>
+        <td>김길동</td>
+        <td>20</td>
+        <td>90</td>
+      </tr>
+      <tr>
+        <td>임꺽정</td>
+        <td>30</td>
+        <td>80</td>
+      </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>평균</td>
+      <td>25</td>
+      <td>85</td>
+    </tr>
+  </tfoot>
+  </table>
+</body>
+</html>

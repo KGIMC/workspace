@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .d1{
+      width: 500px;
+      height: 500px;
+      background-color: aqua;
+    }
+  </style>
+</head>
+<body>
+  <div class="d1" onclick="test1()">div태그</div>
+  <input type="text" onclick="test2()">
+
+  <script>
+    function test1(){
+      // 이벤트를 사용할 태그를 선택
+      const divTag = document.querySelector('.d1');
+      // 선택한 태그에 이벤트 추가
+      divTag.addEventListener('click', function(){
+        alert(1);
+      });
+
+      divTag.addEventListener('mousemove', function(){
+        console.log(1);
+      });
+    }
+    const inputTag = document.querySelector('input');
+
+    function test2(){
+      inputTag.addEventListener('keyup', function(){
+        // alert(1);
+      });
+
+      // 키보드로 입력한 값 출력하기
+      // function(event) -> event의 모든 정보가 담긴 데이터
+      inputTag.addEventListener('keydown', function(event){
+        // console.log(inputTag.value);
+        console.log(event.target.value);
+        // 이벤트가 발생하고 있는 태그의 value값
+      })
+      
+    }
+
+  </script>
+</body>
+</html>

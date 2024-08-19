@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  글번호 : [[${board.boardNum}]] <br>
+  제목 : [[${board.title}]]<br>
+  내용 : [[${board.content}]]<br>
+  작성자 : [[${board.writer}]]<br>
+  작성일 : [[${board.createDate}]]<br>
+  조회수 : [[${board.readCnt}]]
+  <input type="button" value="목록가기1" onclick="test1()">
+  <input type="button" value="목록가기2" onclick="test2()">
+  <input type="button" value="삭제하기" th:onclick="deleteBoard([[${board.boardNum}]])">
+
+
+  <script>
+    function test1(){
+      history.back(-1);
+    }
+
+    function test2(){
+      location.href = "/";
+    }
+
+    function deleteBoard(boardNum){
+      location.href = `/deleteBoard?boardNum=${boardNum}`;
+    }
+  </script>
+</body>
+</html>

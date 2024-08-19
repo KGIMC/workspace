@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  세번째 페이지입니다.
+  <h1>학생 정보 입력 프로그램</h1>
+  <p>[[${scoreVO.name}]] 학생의 성적을 입력합니다.</p>
+  <form action="/fourth" method="post">
+    <input type="hidden" name="name" th:value="${scoreVO.name}">
+    <input type="hidden" name="year" th:value="${scoreVO.year}">
+    <input type="hidden" name="tel" th:value="${scoreVO.tel[0]}">
+    <input type="hidden" name="tel" th:value="${scoreVO.tel[1]}">
+    <input type="hidden" name="gender" th:value="${scoreVO.gender}">
+    국어 <input type="text" name="korScore"><br>
+    영어 <input type="text" name="engScore"><br>
+    수학 <input type="text" name="mathScore"><br>
+    <input type="submit" value="확인">
+  </form>
+</body>
+</html>

@@ -1,0 +1,42 @@
+.container{
+  width: 600px;
+  height: 200px;
+  border: 1px solid black;
+  margin: auto;
+  display: flex;
+}
+
+.container > div{
+  /* width: 100px; */
+  /* height: 100px; */
+  border: 1px solid red;
+}
+
+.flex1{
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.flex2{
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* .flex1 > div:nth-child(2){
+  align-self: flex-start;
+} */
+
+.flex1 > div:nth-child(1){
+  flex-basis: 50%;
+}
+.flex1 > div:nth-child(2){
+ flex-basis: 35%;
+}
+.flex1 > div:nth-child(3){
+ flex-basis: 15%;
+}
+.flex1 > div:nth-child(4){
+ flex-basis: 10%;
+}

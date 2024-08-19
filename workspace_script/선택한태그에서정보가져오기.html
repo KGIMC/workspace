@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>선택한 태그에서 정보 가져오기</h2>
+  <div>
+    <input type="text" name="이름" class="input1" placeholder="이름입력">
+  </div>
+
+  <div id="d1">두번째 div</div>
+
+  <table border="1">
+    <tr>
+      <td>국어점수</td>
+      <td>영어점수</td>
+    </tr>
+    <tr class="aaa">
+      <td>70</td>
+      <td>80</td>
+    </tr>
+  </table>
+
+  <span></span>
+
+  <script>
+    // 선택한 태그의 속성값 받아오기
+    // input 태그 선택
+    const i1 = document.querySelector('input');
+    console.log(i1.type, i1.name, i1.className, i1.placeholder);
+    
+    // 선택한 태그의 속성값 변경
+    i1.name = 'java';
+
+    // 선택한 태그의 속성값 변경2
+    i1.placeholder = '바뀐내용';
+
+    // '두번째 div' 자바스크립트로 가져와서 console에 출력
+    const d1 = document.querySelector('#d1');
+    console.log(d1.textContent);
+
+    // aaa 태그 아래의 점수를 들고와서 합 구하기
+    // 1번 방법
+    const num1 = document.querySelector('.aaa > td:first-child').textContent;
+    const num2 = document.querySelector('.aaa > td:last-child').textContent;
+    const result = num1 + num2; // 문자로 취급
+    // 숫자로 변경
+    const result2 = Number(num1) + Number(num2);
+    console.log(result2);
+
+    const span = document.querySelector('span');
+    span.textContent = result2;
+
+    
+
+
+    
+      
+  </script>
+</body>
+</html>

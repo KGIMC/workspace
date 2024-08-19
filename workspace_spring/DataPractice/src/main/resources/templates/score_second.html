@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  두번째 페이지입니다.
+  <h1>학생 성적 입력 프로그램</h1>
+  <p>[[${scoreVO.name}]] 학생의 기본 정보를 입력합니다.</p>
+  <!-- 위의 [[${scoreVO.name}]] 데이터를 가져가기 위해서 form 태그 안에 input 태그를 추가 생성함. -->
+  <form action="/third" method="post">
+    <input type="hidden" name="name" th:value="${scoreVO.name}"> 
+    <!-- 위에 생성한 [[${scoreVO.name}]] 가져가기 위한 input 태그-->
+    학년 <input type="text" name="year"><br>
+    연락처 
+    <!-- 통상적으로 같은 의미가 쓰일때는 같은 name값을 줘도 문제없음. -->
+    <select name="tel">
+      <option value="010">010</option>
+      <option value="011">011</option>
+    </select>
+    <input type="text" name="tel"><br>
+    성별
+    <input type="radio" name="gender" value="남자">남자
+    <input type="radio" name="gender" value="여자">여자 <br>
+    <input type="submit" value="확인">
+    <input type="button" value="뒤로가기">
+  </form>
+</body>
+</html>

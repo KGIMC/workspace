@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <table>
+    <tr>
+      <td>아이디</td>
+      <td>[[${memberVO.getId}]]</td>
+      <td>이름</td>
+      <td>[[${memberVO.getName}]]</td>
+    </tr>
+    <tr>
+      <td>연락처</td>
+      <td>[[${memberVO.getTel}]]</td>
+      <td>이메일</td>
+      <td>[[${memberVO.getEmail}]]</td>
+    </tr>
+    <tr>
+      <td>생일</td>
+      <td colspan="3">[[${memberVO.getBirth}]]</td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,49 @@
+
+.join-div{
+  width: 40%;
+  margin: 0 auto;
+}
+
+.join-div > div{
+  margin-bottom: 16px;
+}
+
+.join-div p{
+  margin-bottom: 4px;
+}
+
+.id-area{
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.id-area > input{
+  width: 70%;
+}
+.id-area > button{
+  width: 30%;
+}
+
+.gender-div{
+  display: flex;
+}
+
+.gender-div > div:nth-child(1){
+  width: 15%;
+}
+.gender-div > div:nth-child(2){
+  width: 15%;
+}
+.gender-div > div:nth-child(3){
+  width: 15%;
+}
+
+.btn-div{
+  text-align: center;
+}
+
+
+
+
+

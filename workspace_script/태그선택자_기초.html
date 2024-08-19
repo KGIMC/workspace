@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>태그이름, id, class 선택자</h2>
+
+  <div>
+    <div id="d1">div1</div>
+    <div class="div-class">div2</div>
+    <div class="div-class">div3</div>
+  </div>
+
+
+  <script>
+    // 자바스크립트를 사용하여 태그의 내용을 확인, 변경 가능하다.
+    // 자바스크립트로 태그의 정보를 확인하려면 먼저 원하는 태그를 선택할 수 있어야함.
+    
+    // h2 태그를 선택하고 출력
+    const h2_tag = document.querySelector('h2');
+    console.log(h2_tag);
+
+    // 아이디가 'd1'인 태그를 선택하고 출력
+    const d1 = document.querySelector('#d1');
+    console.log(d1);
+    
+    // 클래스가 'div-class'인 태그를 선택하고 출력
+    const d2 = document.querySelectorAll('.div-class');
+    // 동일한 태그명이 여러개일 경우 무조건 한개만 선택
+    // 여러개를 선택해야할 경우 all을 사용
+    console.log(d2);
+
+    // function(반복할 데이터의 이름을 정하는 곳){데이터의 개수만큼 반복}
+    d2.forEach(function(tag, i){
+      console.log(tag)
+    });
+
+    // 위의 모든 div 선택
+    const da = document.querySelectorAll('div > div');
+    da.forEach(function(div_tag, i){
+      console.log(div_tag)
+    })
+  
+
+
+  </script>
+</body>
+</html>

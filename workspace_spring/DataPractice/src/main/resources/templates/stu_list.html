@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+      <!-- 학생 목록의 데이터를 뿌리고 싶다면, 학생 목록의 데이터를 여기에 뿌려야함. -->
+    <table>
+      <tr>
+        <td>학번</td>
+        <td>학생명</td>
+        <td>국어점수</td>
+        <td>영어점수</td>
+        <td>총점</td>
+      </tr>
+      <!-- th bloack 타입 리프 문법 (가짜 테이블) -->
+       <!-- 등록된 학생이 없으면 -->
+       <!-- ${#lists.isEmpty(stu_list)} -> stu_list가 empty 비어있으면 아래 문법을 실행합니다. -->
+      <th:block th:if="${#lists.isEmpty(stu_list)}"> <!-- 조건이 참이면 실행, 아니면 미실행 -->
+        <tr>
+          <td colspan="5">등록된 학생이 없습니다.</td>
+        </tr>
+      </th:block> 
+      <!-- 등록된 학생이 있으면 -->
+      <!--/* 등록된 학생 수 만큼 행을 생성 */-->
+      <th:block th:unless="${#lists.isEmpty(stu_list)}">
+        <th:block th:each="student : ${stu_list}">
+          <tr>
+            <td>[[${student.year}]]</td>
+            <!-- <td onclick="goStuDetail()">[[${student.name}]]</td> -->
+            <td>
+              <a th:href="@{/stu_detail(year=${student.year})}"> 
+                [[${student.name}]]
+              </a>
+              </td>
+            <td>[[${student.korScore}]]</td>
+            <td>[[${student.engScore}]]</td>
+            <td>[[${student.korScore + student.engScore}]]</td>
+          </tr>
+        </th:block>
+      </th:block> 
+    </table>
+    <input type="button" value="학생 등록" onclick="goRegForm()">
+    <script>
+        // 학생 등록 버튼 클릭시 학생 등록 페이지로 이동하는 함수
+        function goRegForm(){
+            location.href = "/regForm";
+        }
+    </script>
+    <!-- <script>
+      function goStuDetail(){
+          location.href = "/stu_detail";
+      }
+    </script> -->
+  
+</body>
+</html>

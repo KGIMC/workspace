@@ -1,0 +1,22 @@
+.container{
+  border: 5px solid red;
+  width: 500px;
+  margin: 20px;
+}
+
+.inner{
+  font-size: 2rem;
+  border: 5px solid black;
+  width: 500px;
+  padding: 0px 10px;
+}
+
+.inner1{
+  box-sizing: content-box;
+}
+
+.inner2{
+  box-sizing: border-box;
+}
+
+

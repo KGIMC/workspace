@@ -1,0 +1,86 @@
+.container1{
+  display: flex;
+  width: 300px;
+  /* height: 400px; */
+  border: 1px solid black;
+  /* justify-content: space-between; */
+  margin: 30px;
+  justify-content: center;
+}
+
+.container1 > div{
+  width: 80px;
+  height: 80px;
+  background-color: green;
+  border: 1px solid black;
+  color: white;
+  font-size: 2rem;
+  /* text-align: center;  */
+  /* 텍스트 기준 가로 정렬 가능 */
+  /* line-height: 80px; */
+  /* 꼼수임 */
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all 1s;
+}
+
+.d1:hover{
+  /* hover : 선택자에 마우스를 올리면 해당 기능 발생 */
+  width: 120px;
+  height: 120px;
+}
+
+.d2:hover{
+  background-color: black;
+  color: red;
+}
+
+.d3:hover{
+  position: relative;
+  /* 포지션이 앱솔루트인 태그의 부모태그에 relative 부여 */
+  top: 10px;
+  left: 10px;
+}
+
+/* ---------------------------------------------------------------------- */
+
+input{
+  margin-left: 30px;
+  width: 200px;
+  padding: 10px 6px;
+  border-radius: 8px;
+  border: 1px solid red;
+  outline: none;
+  transition: all 1s;
+}
+
+input:focus{
+  width: 300px;
+  border: 2px solid red;
+}
+
+/* ---------------------------- */
+
+/* UI 제작 완 */
+
+ul{
+  margin-left: 30px;
+}
+
+.li-1:before{
+  content: "new";
+  /* before - 선택자 앞에 인라인 요소 추가 */
+  color: white;
+  background-color: blue;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-right: 6px;
+}
+
+.li-1:after{
+  content: "css";
+  /* after - 선택자 뒤에 인라인 요소 추가 */
+}

@@ -1,0 +1,41 @@
+    table, tr, td{
+      /* border-collapse: collapse; */
+      border: 1px solid black;
+    }
+
+    table{
+      width: 600px;
+    }
+
+    .td1{
+      text-align: center;
+    }
+    .td2{
+      background-color: aqua;
+      text-align: center;
+    }
+      
+    span{
+      color: red;
+    }
+
+    .s1{
+      font-style: italic;
+      font-weight: bold;
+      font-size: 12px;
+    }
+    .in1{
+      width: 60px;
+    }
+
+    .in2{
+      width: 30px;
+    }
+
+    .in3{
+      width: 70px;
+    }
+/* 
+    table > tbody > tr > td:first-child{
+      text-align: center;
+    } */

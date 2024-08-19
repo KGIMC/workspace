@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="행추가" onclick="addTr()">
+  <input type="button" value="제목줄을 제외한 모든행 삭제" onclick="deleteAll()">
+  <table border="1" style="width: 500px;">
+    <thead>
+      <tr>
+        <td>이름</td>
+        <td>나이</td>
+      </tr>
+    </thead>
+    <tbody>
+      
+    </tbody>
+  </table>
+
+  <script>
+    function addTr(){
+        // const tr1 = '<tr>< td><input type="text"></><td><input type="text"></td></tr>';
+        const tr1 = `
+          <tr>
+            <td><input type="text"></td>
+            <td>
+              <input type="text">
+              <input type="button" value="삭제" onclick="deleteOne(this)">
+              </td>
+          </tr>
+        `;
+        const table = document.querySelector('table > tbody');
+        table.insertAdjacentHTML('beforeend', tr1);
+    }
+      
+
+    // 시험에 나옴.
+    function deleteAll(){
+      const tbodyTag = document.querySelector('table > tbody');
+      // tbodyTag.innerHTML = ''; // 태그 안의 내용만 삭제
+      // innerHTML은 내가 선택한 태그의 모든값을 가져옴.
+      // innerHTML을 빈값으로 바꾸면 삭제와 비슷한 기능을 함.
+      tbodyTag.remove(); // 내가 선택한 태그 자체를 삭제
+    }
+
+    function deleteOne(selectedTag){
+      // 삭제할 tr 태그 선택하기
+      const trTag = document.querySelector('tbody > tr')
+      // 매개변수로 전달되는 this : 현재 이벤트가 발생한 태그
+      // 내가 클릭한 삭제 버튼을 감싸고 있는 가장 가까운 tr 태그
+      selectedTag.closest('tr').remove;
+    }
+  </script>
+</body>
+</html>

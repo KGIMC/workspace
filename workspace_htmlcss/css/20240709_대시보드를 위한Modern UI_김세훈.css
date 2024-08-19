@@ -1,0 +1,261 @@
+.container{
+  width: 100vw;
+  height: 100vh;
+}
+
+.header{
+  height: 80px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5px;
+  align-items: center;
+}
+
+.menu{
+  display: flex;
+  justify-content: space-around;
+}
+
+ul > li {
+  padding: 10px;
+}
+
+li{
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+input{
+  margin: 10px;
+  padding: 5px 10px 5px 10px;
+}
+
+.input{
+  width: 200px;
+  position: relative;
+}
+
+.icon{
+  position: absolute;
+  top: 4%;
+  left: 75.5%;
+  /* transform: translate(-50%, -50%); */
+  color: orange;
+}
+
+.button{
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+  background-color: orange;
+  border: 1px solid orange;
+}
+
+.main{
+  text-align: center;
+}
+
+.page{
+  text-decoration-line: none;
+}
+
+.main > div{
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 10px;
+}
+
+.emo{
+  display: flex;
+  justify-content: center;
+}
+
+.emo > div{
+  width: 100px;
+  margin: 15px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+
+
+.emo i{
+  color: orange;
+  border: 10px solid orange;
+  border-radius: 100%;
+  padding: 25px;
+}
+
+.down{
+  margin-bottom: 45px;
+}
+
+.emoName{
+  font-weight: bold;
+}
+
+.emoSub{
+  font-size: 0.7rem;
+  width: 100px;
+}
+
+.banner{
+  position: relative;
+  text-align: center;
+  
+}
+
+.banner-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: orange;
+  font-size: 3rem;
+}
+
+
+.banner-text2{
+  font-size: 1rem;
+  color: white;
+  margin: 10px 0px 10px 0px;
+}
+
+.banner-text3{
+  background-color: orange;
+  color: white;
+  width: 200px;
+  font-size: 1.3rem;
+  padding: 5px 0px 5px 0px;
+  
+}
+
+.footer{
+  text-align: center;
+}
+  
+.footer > div{
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 10px;
+}
+
+.last-img{
+  display: flex;
+  justify-content: center;
+}
+
+.last1{
+  padding: 0px 20px;
+}
+
+
+.last3{
+  padding: 0px 20px;
+}
+
+.last1{
+  position: relative;
+}
+
+.last2{
+  position: relative;
+}
+
+.last3{
+  position: relative;
+}
+
+.last11{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 372px;
+  height: 100px;
+  background-color: black;
+  opacity: 40%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+
+.last22{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 372px;
+  height: 100px;
+  background-color: black;
+  opacity: 40%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.last33{
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 372px;
+  height: 100px;
+  background-color: black;
+  opacity: 40%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.last1 div:first-child{
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.last1 div:last-child{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.last2 div:first-child{
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.last2 div:last-child{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.last3 div:first-child{
+  padding-left: 10px;
+  padding-top: 10px;
+}
+
+.last3 div:last-child{
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+
+
+
+
+.bold{
+  font-weight: bold;
+}
+
+.small{
+  font-size: 0.8rem;
+  color: orange;
+}
+
+
+button{
+  background-color: orange;
+  width: 100px;
+  height: 40px;
+  border-collapse: collapse;
+  cursor: pointer;
+}
+
+.hover:hover{
+  color: orange;
+  cursor: pointer;
+}

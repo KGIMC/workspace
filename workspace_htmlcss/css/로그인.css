@@ -1,0 +1,88 @@
+body{
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  width: 800px;
+  height: 300px;
+  /* 첫번째 : x축으로의 그림자 이동
+     두번째 : y축으로의 그림자 이동
+     세번째 : 그림자의 퍼짐 정도
+     네번째 : 그림자 색
+  */
+  box-shadow: 0px 0px 5px black;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.main{
+  display: flex;
+
+}
+.button{
+  background-color: blue;
+  counter-reset: white;
+  font-size: 1.5rem;
+  border: 0px;
+  border-radius: 10px;
+  color: white;
+  padding: 0px 30px 0px 30px;
+}
+
+.sub1{
+  flex-basis: 55%;
+  height: 215px;
+  background-color: lightgray;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 7px lightgray;
+}
+
+.sub2{
+  padding: 10px;
+  line-height: 25px;
+  border-radius: 5px;
+}
+.main > div:first-child{
+  line-height: 33px;
+}
+
+.i{
+  margin:10px;
+}
+.a{
+  padding: 10px 55px 10px 55px; 
+  background-color: orange;
+  color: white;
+  border-radius: 10px;
+}
+
+.ul{
+  margin: 0px 0px -10px 0px;
+}
+
+.sub3{
+  display: inline;
+}
+
+.sub3 > div{
+  margin: -10px 0px 0px 0px;
+  text-align: center;
+  color: green;
+}
+
+.input1{
+  width: 400px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.input2{
+  width: 400px;
+  height: 30px;
+  border-radius: 5px;
+}

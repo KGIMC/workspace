@@ -1,0 +1,94 @@
+body{
+  width: 100vw;
+  height: 100vh;
+  background-color: lightcyan;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  width: 360px;
+  box-shadow: 0px 4px 6px #dddddd;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.img-div{
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-div > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* 비율 조절 */
+  object-position: center center;
+
+}
+
+.img-div > img:hover {
+  scale: 1.1;
+  transition: all 1s;
+
+}
+.img-div span{
+  color: white;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.detail-div{
+  background-color: white;
+  padding: 10px;
+}
+
+.detail-2{
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px 0px;
+  margin: 10px 0px;
+}
+
+b{
+  margin: 0px 4px;
+}
+
+.detail-3 img{
+  width: 50px;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+}
+
+.detail-3 > div:nth-child(2){
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 6px 0px 0px 0px;
+}
+
+.detail-3 button{
+  background-color: lightgreen;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+button:hover{
+  background-color: rgb(44, 214, 44);
+  color: #aaaaaa;
+  transition: all 1s;
+}
+
+

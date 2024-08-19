@@ -1,0 +1,24 @@
+body{
+  margin: 0px;
+}
+
+div{
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+  text-align: center;
+  line-height: 200px;
+}
+
+.d1{
+  background-color: aqua;
+}
+.d2{
+  background-color: crimson;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+.d3{
+  background-color: green;
+}

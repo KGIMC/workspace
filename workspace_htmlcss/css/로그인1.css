@@ -1,0 +1,122 @@
+body{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  width: 800px;
+  height: 300px;
+  box-shadow: 0px 0px 6px gray;
+  padding: 24px 16px;
+  border-radius: 10px;
+}
+
+.content{
+  display: flex;
+  align-items: center;
+  height: 220px;
+  /* border: 1px solid blue; */
+  justify-content: space-around;
+}
+
+.content > div{
+  /* border: 1px solid red; */
+
+}
+
+input[type="text"],
+input[type="password"]{
+  display: block;
+  width: 100%;
+  padding: 4px 4px;
+  border: 1px solid lightgray;
+  border-radius: 6px;
+  outline: none;
+}
+input[type="text"]:focus,
+input[type="password"]:focus{
+  border: 2px solid lightseagreen;
+}
+
+.loginform{
+  width: 45%;
+  background-color: #eeeeee;
+  padding: 6px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px black;
+}
+
+.intro{
+  width: 45%;
+}
+
+label{
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+input{
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.btndiv{
+  margin-top: 8px;
+}
+
+button{
+  color: white;
+  background-color: lightcoral;
+  /* outline: none; */
+  border: none;
+  width: 100px;
+  height: 30px;
+  padding: 4px 0px;
+  border-radius: 4px;
+}
+
+button:hover{
+  background-color: rgb(206, 110, 110);
+  color: rgb(233, 233, 233);
+  cursor: pointer;
+}
+
+.intro > h4{
+  margin-bottom: 6px;
+}
+
+.intro li{
+  font-size: 0.8rem;
+  margin-bottom: 4px;
+}
+
+.intro a{
+  background-color: orange;
+  text-decoration: none;
+  color: white;
+  display: block;
+  text-align: center;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  padding: 4px 0px;
+}
+
+p{
+  color: green;
+  text-align: center;
+  font-size: 0.rem;
+  margin: 6px 0px;
+}
+
+.intro span{
+  color: lightgreen;
+  font-size: 0.7rem;
+}
+
+input[type="checkbox"]{
+  position: relative;
+  top: 1.5px;
+}

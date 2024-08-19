@@ -1,0 +1,32 @@
+table{
+  width: 100%;
+  text-align: center;
+}
+
+table > thead > tr{
+  border-top: 1px solid black;
+  border-bottom: 3px double black;
+  background-color: #eeeeee;
+}
+
+
+
+table > thead > tr > td{
+  padding: 6px;
+}
+
+tbody > tr{
+  border-bottom: 1px solid black;
+}
+
+tbody > tr > td{
+  padding: 6px;
+}
+
+tbody > tr:nth-child(even){
+  background-color: #dddddd;
+}
+
+tbody > tr:hover{
+  background-color: #cccccc;
+}

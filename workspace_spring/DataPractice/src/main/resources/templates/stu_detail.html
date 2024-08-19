@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  학번 : [[${student.year}]] <br>
+  이름 : [[${student.name}]] <br>
+  국어점수 : [[${student.korScore}]] <br> 
+  영어점수 : [[${student.engScore}]] <br>
+  자기소개 : [[${student.intro}]] <br>
+
+  <input type="button" value="뒤로가기" onclick="goBack()">
+  <input type="button" value="학생수정" th:onclick="goEditForm([[${student.year}]])">
+  <input type="button" value="학생삭제" th:onclick="goDelete([[${student.year}]])">
+
+  <!--/* 타임리프 문법에 매개변수로 쓸 경우 대괄호 [[]] 다쓸것. */-->
+
+
+  <script>
+    // 펑션 내에서 함수 쓰고 싶은 경우 ` 으로 감쌀것.
+    // 페이지 이동과 동시에 데이터를 가져오고 싶은 경우 페이지 이동 뒤에 ? 를 붙여야함.
+    function goBack(){
+      // -1만큼 뒤로 이동한다.
+      history.back(-1);
+      // 만약 이동한 상태에서 기존 자료가 추가되면 기존 그대로 나옴.
+      // 예시 페이지 이동 후 새로운 게시글 추가 된 상태에서 뒤로가기 되어도 새로 추가된 게시글 안 보임.
+      // location.href 
+      // history back과 반대 개념
+    }
+      // 학생 삭제시 실행하는 스크립트
+    function goDelete(year){
+        const result = confirm('삭제할까요?');
+
+        if(result){
+          location.href = `/stu_delete?year=${year}`; 
+        }
+      
+    }
+
+    function goEditForm(year){
+      location.href = `/stu_edit?year=${year}`;
+    }
+  </script>
+</body>
+</html>

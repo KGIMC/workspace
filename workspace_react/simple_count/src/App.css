@@ -1,0 +1,23 @@
+.App {
+  /* 글자가 중앙에 나오는 이유
+      Class에 기본적으로 디자인이 적용되어 있어서 그렇게 나오는 것.
+      디자인을 수정하려면 App.css에 가서 변경해야함.
+     */
+  /* .으로 시작하면 클래스 - 헷갈리지 말 것 */
+  border: 1px solid black;
+  width: 500px;
+  margin: 0px auto;
+  margin-top: 30px;
+}
+
+.box{
+  background-color: #eeeeee;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+button{
+  width: 50px;
+  margin: 10px;
+}

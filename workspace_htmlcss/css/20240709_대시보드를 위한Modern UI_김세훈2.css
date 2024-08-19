@@ -1,0 +1,41 @@
+table, tr, td{
+  width: 1200px;
+  height: 30px;
+  
+}
+
+table{
+  border: 0.5px solid gray;
+}
+
+table td{
+  border: 0.5px solid gray;
+}
+tr > td span{
+  color: red;
+}
+
+tr > td:first-child{
+  background-color: #eeeeee;
+}
+
+
+.addrinput{
+  width: 50px ;
+}
+
+.num{
+  width: 50px;
+}
+
+.year{
+  width: 70px;
+}
+
+.month{
+  width: 50px;
+}
+
+.day{
+  width: 50px;
+}

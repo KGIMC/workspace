@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>부모태그 선택, 자식 태그 선택, 형제 태그 선택자</h2>
+
+  <table border="1">
+    <thead>
+      <tr id="firstRow">
+        <td id="stuNum">학번</td>
+        <td>이름</td>
+        <td>나이</td>
+      </tr>      
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>홍길동</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td id="name">이순신</td>
+        <td>20</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    const stuNumTd = document.querySelector('#stuNum'); // td태그
+    // 선택한 태그의 부모태그를 선택
+    const trTag = stuNumTd.parentElement;
+    console.log(trTag);
+
+    const firstRow = document.querySelector('#firstRow'); // tr태그 
+    const tds= firstRow.children;
+    // console.log(...tds);
+    for(let i = 0 ; i < tds.length ; i++){
+      console.log(tds[i]);
+    } 
+
+    const nameTd = document.querySelector('#name');
+    
+    // 이전 형제 찾기
+    const previous = nameTd.previousElementSibling;
+    console.log(previous);
+
+    // 다음 형제 찾기
+    // const next = nameTd.nextElementSibling;
+    console.log(nameTd.nextElementSibling);
+
+    
+  </script>
+</body>
+</html>

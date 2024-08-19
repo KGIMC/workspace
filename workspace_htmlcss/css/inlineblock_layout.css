@@ -1,0 +1,21 @@
+.container1{
+  width: 500px;
+  height: 500px;
+  border: 1px solid black;
+  font-size: 0px;
+  margin: 30px;
+}
+
+.container1 > div{
+  width: 150px;
+  height: 150px;
+  background-color: #FF9999;
+  border: 1px solid black;
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 150px;
+  font-weight: bold;
+  /* float: left; */
+  display: inline-block;
+}

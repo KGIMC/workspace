@@ -1,0 +1,27 @@
+.App {
+  border: 1px solid black;
+  width: 600px;
+  margin: 0px auto;
+  background-color: #eeeeee;
+}
+
+.h2{
+  padding-left: 20px;
+}
+
+.box{
+  background-color: #eeeeee;
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+
+span.item{
+  width: 200px;
+  display: inline-block;
+  text-align: center;
+}
+
+.item-div{
+  margin-bottom: 6px;
+}

@@ -1,0 +1,15 @@
+.container{
+  /* border: 1px solid black; */
+  width: 900px;
+  margin: auto;
+}
+
+table, tr, td{
+border: 1px solid black;
+}
+
+table{
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 40px;
+}

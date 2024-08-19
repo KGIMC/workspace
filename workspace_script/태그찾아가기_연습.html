@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="start" class="java">
+    <div>
+      <div>떡볶이</div>
+    </div>
+    <div>
+      <div>김밥</div>
+      <div>순대</div>
+    </div>
+    <div>
+      <div id="second">튀김</div>
+    </div>
+  </div>
+
+  <script>
+   // HTML 건들지 말고, 김밥 순대 콘솔 창에 띄우기
+   // 내가 한 방식
+   const start = document.querySelector('#start');
+   const div2 = start.children[1];
+   const div22 = div2.children;
+
+   for(let i = 0 ; i < div22.length ; i++){
+      console.log(div22[i].textContent)
+   }
+
+   // 강사님 방식
+   const start2 = document.querySelector('#start');
+   const divs = start2.children[1].children; // 자식 태그 안의 자식 태그 연달아 선택 가능
+   for(let i = 0 ; i < divs.length ; i++){
+      console.log(divs[i].textContent);
+   }
+
+
+   // 시작위치에서 아이디가 start인 태그의 클래스 속성값을 출력
+    const second = document.querySelector('#second');
+    const seDiv = second.parentElement.parentElement;
+    console.log(seDiv.className);
+
+   // 선택한 태그를 감싸는 가장 가까운 태그를 찾아감
+    second.closest('#start');
+    console.log(start.className);
+
+   
+    
+  </script>
+</body>
+</html>

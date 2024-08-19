@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 해당 파일에 모든 쿼리문을 작성 -->
+<!-- mapper 태그 안의 namespace가 비어있으면 실행 시 오류 -->
+<!-- namespace mapper 파일에 가명(별명)을 부여하는 것-->
+<mapper namespace="dbMapper">
+    <!-- DB에서 조회된 데이터를 vo 클래스로 가져오기 위한 설정 -->
+    <!-- Tpye : 조회된 데이터를 담을 vo 클래스, 패키지명도 작성 -->
+    <!-- column : 데이터베이스에서 조회되는 컬럼명 -->
+    <!-- property : vo 클래스에 정의한 멤버변수명-->
+    <!-- id : 정의한 resultMap을 지칭하는 이름 -->
+    <resultMap id="member" type="com.green.DB_Member.vo.MemberVO">
+        <result column="MEM_NUM" property="memNum"/>
+        <result column="MEM_NAME" property="memName"/>
+        <result column="MEM_AGE" property="memAge"/>
+        <result column="MEM_ADDR" property="memAddr"/>
+    </resultMap>
+
+    <!-- 회원번호가 10번인 회원의 이름을 조회-->
+    <!-- select 태그는 조회 결과 데이터를 자바로 어떻게 가져올지 작성해야 함. -->
+    <!-- resultType : 조회된 데이터에서 하나의 행 정보를 담을 자료형 int, String, Map-->
+    <!-- resultMap : 조회된 데이터에서 하나의 행 정보를 담을 자료형 int, String을 제외한 나머지 경우 -->
+    <select id="select1" resultType="String">
+        SELECT MEM_NAME
+        FROM test_member
+        WHERE MEM_NUM = 10;
+    </select>
+
+
+    <select id="select2" resultType="int">
+        SELECT MEM_AGE
+        FROM test_member
+        WHERE MEM_NUM = #{memNum};
+        <!-- 전달된 회원번호를 지닌 회원의 나이를 조회하기 위해서는 조건에
+             회원번호, 전달받을 변수 또한 회원번호 -->
+    </select>
+
+    <!-- > : &gt;-->
+    <!-- < : &lt;-->
+    <select id="select3" resultType="String">
+        SELECT MEM_NAME
+        FROM test_member
+        WHERE MEM_AGE &gt;= #{memAge};
+        <!--  전달받은 나이 이상의 회원의 이름을 조회 -->
+
+    </select>
+
+
+    <!-- 데이터가 한 행에 여러개 나오는 경우 -->
+    <!-- 전달받은 회원번호를 지닌 회원의 회원번호, 이름, 나이, 주소를 조회-->
+    <select id="select4" resultMap="member">
+
+        SELECT MEM_NUM
+            , MEM_NAME
+            , MEM_AGE
+            , MEM_ADDR
+        FROM test_member
+        WHERE MEM_NUM = #{memNum};
+    </select>
+
+
+    <!--모든 회원의 회원번호, 이름, 나이, 주소 조회-->
+    <select id="select5" resultMap="member">
+        SELECT MEM_NUM
+        , MEM_NAME
+        , MEM_AGE
+        , MEM_ADDR
+        FROM test_member;
+    </select>
+
+
+    <!-- 전달받은 회원번호를 가진 회원을 삭제 -->
+    <delete id="delete">
+        DELETE FROM test_member
+        WHERE MEM_NUM = #{memNum};
+    </delete>
+
+    <!-- 회원 한명 추가 -->
+    <insert id="insert">
+        INSERT INTO test_member (
+        MEM_NUM, MEM_NAME, MEM_AGE, MEM_ADDR
+        ) VALUES (
+        #{memNum}
+        , #{memName}
+        , #{memAge}
+        , #{memAddr}
+        );
+    </insert>
+
+    <update id="update">
+        UPDATE TEST_MEMBER
+        SET
+        MEM_NAME = #{memName}
+        , MEM_AGE = #{memAge}
+        , MEM_ADDR = #{memAddr}
+        WHERE MEM_NUM = #{memNum};
+    </update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

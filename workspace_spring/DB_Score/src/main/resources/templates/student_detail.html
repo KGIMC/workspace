@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  학번 : [[${score.stuNum}]] <br>
+  이름 : [[${score.stuName}]] <br>
+  국어점수 : [[${score.korScore}]] <br>
+  영어점수 : [[${score.engScore}]] <br>
+  자기소개 : [[${score.intro}]] <br>
+  <!-- 학생 정보 수정을 위해서는 기존 정보를 들고 넘어가야함. -->
+  <input type="button" value="삭제" th:onclick="goDelete([[${score.stuNum}]])">
+  <input type="button" value="수정하러가기" th:onclick="goUpdate([[${score.stuNum}]] )">
+  <!-- 학생 정보 삭제 버튼을 누르면 바로 해당 페이지의 학생 정보를 삭제하고 목록 페이지로 리턴 -->
+
+  <script>
+
+    function goDelete(stuNum){ 
+      // delete 갈때 학생 학번 데이터를 가지고 가서 확인하기 위함.
+      // delete는 delete 페이지로 갈 필요가 없이, 해당 페이지에서 삭제 후 목록 페이지로 리턴
+      location.href = `/delete?stuNum=${stuNum}`;
+    }
+
+    function goUpdate(stuNum){
+      location.href = `/updateForm?stuNum=${stuNum}`;
+      // 수정할 수 있는 페이지로 가야함.
+    }
+  </script>
+ 
+
+</body>
+</html>

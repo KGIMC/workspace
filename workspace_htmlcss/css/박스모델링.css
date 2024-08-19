@@ -1,0 +1,48 @@
+
+  /* 태그의 너비는 기본적으로
+  width + padding + border의 합
+  */
+
+.p1{
+  /* 배경 색상 */
+  background-color: white;
+  /* 테두리의 굵기, 선의 종류, 색상 */
+  border: 3px solid black;
+  /* 바깥 여백 */
+  margin: 30px;
+  /* 안쪽 여백 */
+  padding: 20px;
+}
+
+.p2{
+  background-color: white;
+  border: 3px solid crimson;
+  padding-top: 20px;
+}
+
+.p3{
+  background-color: white;
+  border: 3px dotted violet;
+  /* 12시부터 시계방향으로 픽셀 부여 가능 */
+  /* 패딩, 마진 동일 */
+  padding: 10px 20px 40px 80px;
+  /* 상하 좌우 */
+  margin: 50px 20px;
+}
+
+.p4{
+  border: 1px solid black;
+  /* 너비 */
+  width: 250px;
+  /* 높이 */
+  height: 150px;
+}
+
+.a1{
+  /* 너비, 높이 변경 불가능 */
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  /* 상하 변경 안됨 */
+}
+

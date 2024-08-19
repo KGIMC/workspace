@@ -1,0 +1,29 @@
+.container{
+  width: 800px;
+  height: 600px;
+  margin: 20px auto;
+  border: 5px solid black;
+  background-color: brown;
+
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: repeat(2, 100px);
+
+  align-content: center;
+  /* 세로 방향 기준 */
+  justify-content: center;
+  /* 가로 방향 기준 */
+  align-items: center;
+  justify-items: center;
+}
+
+.container > div{
+  border: 5px solid black;
+  background-color: aquamarine;
+}
+
+.container > div:last-child{
+  align-self: start;
+  justify-self: end;
+}
+

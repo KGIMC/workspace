@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/login.css">
+</head>
+<body>
+  <!-- input 태그에 입력한 정보를 자바로 전달하기 위해서는 input 태그를 form 태그로 감싼다 -->
+  <!-- form 태그 안에 submit을 클릭하면 form 태그의 action 속성으로 페이지가 이동 -->
+  <!-- input 태그의 입력값은 name 속성에 작성한 이름으로 자바로 전달됨 -->
+  <!-- form 태그 메소드를 get으로 지정할 경우
+       url에 입력값이 노출됨.
+       노출 방지하려면 메소드값을 post로 변경 -> mapping값도 포스트로 변경 
+  -->
+  <!-- form 태그 안의 input 태그의 데이터가 전달된다는 것은
+       input 태그의 밸류 속성 값이 전달 되는 것이다. -->
+
+  <h2>RequestParam으로 데이터 전달 받기</h2>
+  <form action="login" method="get">  
+  
+    아이디 <input type="text" name="id"> <br> 
+    비밀번호 <input type="password" name="pw"> <br>
+    <input type="submit" value="로그인">
+  
+   </form>
+
+
+  <h2>객체로 데이터 전달 받기</h2>
+ <form action="login1" method="post">  
+  
+   아이디 <input type="text" name="id"> <br> 
+   비밀번호 <input type="password" name="pw"> <br>
+   <input type="submit" value="로그인">
+ 
+  </form>
+ 
+</body>
+</html>
+

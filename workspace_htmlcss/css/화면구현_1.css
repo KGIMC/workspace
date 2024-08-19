@@ -1,0 +1,28 @@
+table, tr, td{
+  width: 1200px;
+  height: 30px;
+  border: 1px solid black;
+}
+
+td:first-child{
+  background-color: green;
+}
+
+tr > td span{
+  color: red;
+}
+
+/* .container{
+  border: 1px solid black -> 라인 정리 후 주석처리
+  width: 900px
+  margin: auto;
+  
+ table, tr, td{
+border: 1px solid black;
+
+table{
+border-collapse:collapse;
+width: 1200px; / 100% ( 너비 퍼센트의 기준은 부모 요소가 기준 )
+}
+} 
+  */

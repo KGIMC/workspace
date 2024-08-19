@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 여기에 들어가야할 기능
+    1. 학생 이름 클릭 시 학생 상세 정보 페이지로 이동
+    2. 학생 등록 버튼 클릭 시 학생 등록 페이지로 이동 
+  -->
+  <h1>학생 정보 목록 페이지</h1>
+  <table border="1">
+    <tr>
+      <td>학번</td>
+      <td>학생명</td>
+      <td>국어점수</td>
+      <td>영어점수</td>
+      <td>총점</td>
+    </tr>
+    <th:block th:if="${#lists.isEmpty(stuList)}">
+      <tr>
+          <td colspan="5">조회된 학생이 없습니다.</td>
+      </tr>
+    </th:block>
+    <th:bloack th:unless="${#lists.isEmpty(stuList)}">
+      <tr th:each="stu : ${stuList}">
+        <td>[[${stu.stuNum}]]</td>
+        <td><a th:href="@{/student_detail(stuNum=${stu.stuNum})}">[[${stu.stuName}]]</a></td>
+        <td>[[${stu.korScore}]]</td>
+        <td>[[${stu.engScore}]]</td>
+        <td>[[${stu.korScore + stu.engScore}]]</td>
+        <!-- 변수를 해석하기 위해서는 타임리프 문법 사용 -->
+        
+        
+
+      </tr>
+    </th:bloack>
+  </table>
+  <input type="button" value="학생등록하러가기" onclick="goReg()">
+  <!-- 학생 등록하러 가는 것 -->
+  <script>
+    function goReg(){
+      location.href = "/regForm";
+    }
+
+    function goStuDetail(){
+      location.href = "/student_detail";
+    }
+  </script>
+</body>
+</html>

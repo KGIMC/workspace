@@ -1,0 +1,28 @@
+div{
+  border: 3px solid red;
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+}
+
+.d1{
+  background-image: url(house.jpg);
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+}
+
+img{
+  width: 100%;
+  height: 100%;
+  /* width를 100%로 맞추면 원하는 내역 안에 들어가짐. */
+  /* height: 100%; */
+  /* 단, 높이는 width에 맞게 강제로 조절, 단 높이까지 강제로 조절할 경우 이미지 깨짐 */
+  /* object-fit: cover;   */
+}
+
+.d2 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left top;
+}

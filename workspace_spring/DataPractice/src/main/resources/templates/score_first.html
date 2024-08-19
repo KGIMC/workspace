@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  첫번째 페이지입니다.
+  <h1>학생 성적 입력 프로그램</h1>
+  <!-- 데이터 보내기 위해서 form으로 감쌈. -->
+  <!-- form 태그 안의 input 태그 안의 value 값을 가져가려고 함.
+       가져가기 위해선 반드시 name 속성이 있어야함. -->
+  <form action="/second" method="post"> <!-- submit을 누르면 second 페이지로 이동-->
+    
+    이름 <input type="text" name="name">
+    <!-- ↑ 입력한 데이터가 있는 곳 -->
+    <input type="submit" value="확인">
+
+  </form>
+</body>
+</html>
