@@ -1,0 +1,16 @@
+.login-page-div{
+  width: 35%;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 10px;
+  background-color: rgba(230, 230, 230, 0.1);
+  box-shadow: 3px 3px 6px #dddddd;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.login-page-div .wide{
+  width: 100%;
+}

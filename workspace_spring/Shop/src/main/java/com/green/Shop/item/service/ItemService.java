@@ -12,6 +12,10 @@ public interface ItemService {
     //상품 상세 조회
     ItemVO getItemDetail(int itemCode);
 
-
-
 }
+
+
+
+
+
+

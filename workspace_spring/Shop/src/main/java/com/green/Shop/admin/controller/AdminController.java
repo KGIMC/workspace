@@ -70,8 +70,6 @@ public class AdminController {
         //상품 이미지 정보 등록
         adminService.insertImgs(itemVO);
 
-        // 그냥 테스트용 명령어
-        adminService.insertImgs(itemVO);
     }
 
 

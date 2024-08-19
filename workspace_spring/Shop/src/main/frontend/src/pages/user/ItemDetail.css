@@ -1,0 +1,60 @@
+.item-detail-div{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.item-detail-div > div{
+  margin-bottom: 30px;
+}
+
+.item-info-div{
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  gap: 24px;
+}
+
+.item-info-div > img{
+  width: 40%;
+  height: 280px;
+}
+
+.item-info-div > div{
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around
+}
+
+.item-cnt-div{
+  display: flex;
+  align-items: center;
+}
+
+.item-cnt-div > span{
+  width: 20%;
+}
+
+.item-cnt-div > input{
+  width: 60%;
+}
+
+.item-button-div{
+  display: flex;
+  gap: 10px;
+}
+
+.item-button-div > button:nth-child(1){
+  width: 40%;
+}
+.item-button-div > button:nth-child(2){
+  width: 60%;
+}
+
+.item-intro-div{
+  text-align: center;
+}
+
+.detail-img-div > img{
+  width: 100%;
+}

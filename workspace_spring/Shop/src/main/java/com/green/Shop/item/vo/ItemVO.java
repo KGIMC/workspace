@@ -1,6 +1,5 @@
 package com.green.Shop.item.vo;
 
-import com.green.Shop.cart.vo.CartVO;
 import com.green.Shop.member.vo.MemberVO;
 import lombok.Data;
 

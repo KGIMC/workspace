@@ -19,7 +19,6 @@
         <collection property="imgList" resultMap="img"/>
     </resultMap>
 
-
     <resultMap id="img" type="com.green.Shop.item.vo.ImgVO">
         <id     column="IMG_CODE"           property="imgCode"/>
         <result column="ORIGIN_FILE_NAME"   property="originFileName"/>
@@ -28,7 +27,7 @@
         <result column="ITEM_CODE"          property="itemCode"/>
     </resultMap>
 
-
+    <!--상품 목록 조회-->
     <!--조회 시 조인, 서브쿼리가 사용되면 조회한 데이터를 자바로 가져오기 위해-->
     <!--정의한 resultMap에 assciation 혹은 collection을 추가해야 함-->
     <!--둘 중의 무엇을 쓸지는 테이블간의 관계가 1:1 관계인지, 1:n관계이지에 따라 결정-->
@@ -37,8 +36,6 @@
     <!--상품 테이블을 기준으로 이미지 테이블과 1:n 관계이다.-->
     <!--이렇게 결정한 테이블의 간의 관계를 vo에 먼저 적용시켜준다.-->
     <!--이 관계를 resultMap에도 맺어줘야 한다.-->
-
-    <!-- 상품 목록 조회 -->
     <select id="getItemList" resultMap="item">
         SELECT ITEM.ITEM_CODE
             , ITEM_NAME
@@ -50,18 +47,19 @@
         ORDER BY ITEM_CODE DESC
     </select>
 
-    <!-- 상품 목록 상세 조회 -->
-   <select id="getItemDetail" resultMap="item">
-       SELECT ITEM.ITEM_CODE
-       , ITEM_NAME
-       , ITEM_PRICE
-       , ITEM_INTRO
-       , ATTACHED_FILE_NAME
-       , IS_MAIN
-       FROM shop_item item, item_img img
-       WHERE ITEM.ITEM_CODE = IMG.ITEM_CODE
-       AND ITEM.ITEM_CODE = #{itemCode};
-   </select>
+    <!--상품 상세 조회-->
+    <select id="getItemDetail" resultMap="item">
+        SELECT ITEM.ITEM_CODE
+            , ITEM_NAME
+            , ITEM_PRICE
+            , ITEM_INTRO
+            , ATTACHED_FILE_NAME
+            , IS_MAIN
+        FROM shop_item ITEM, item_img IMG
+        WHERE ITEM.ITEM_CODE = IMG.ITEM_CODE
+        AND ITEM.ITEM_CODE = #{itemCode}
+    </select>
+
 
 
 </mapper>
