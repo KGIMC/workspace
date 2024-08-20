@@ -7,6 +7,12 @@ const CartList = () => {
   //조회한 장바구니 목록 데이터를 저장할 변수
   const [cartList, setCartList] = useState([]);
 
+  // 체크박스 값 저장될 state 변수값
+  const [chkAll, setChkAll] = useState(true);
+
+  // 장바구니에 저장된 목록 각각의 값을 배열로 저장하기
+  const [chks, setChks] = useState([]);
+
   //장바구니 목록 조회
   useEffect(() => {
     const loginInfo  = JSON.parse(window.sessionStorage.getItem('loginInfo'));
@@ -15,11 +21,38 @@ const CartList = () => {
     .then((res) => {
       console.log(res.data);
       setCartList(res.data);
+
+      let checkAll = new Array(res.data.length);
+      checkAll.fill(true);
+      setChks(checkAll);
+      
     })
     .catch((error) => {console.log(error)});
   }, []);
 
-  
+
+  useEffect(()=>{
+    if(chks.length != 0)
+    { 
+    // 제목줄이 체크 -> 전체체크박스 체크
+    const copyChks = [...chks];
+
+    if(chkAll){
+      copyChks.fill(true);
+    } else {
+      copyChks.fill(false)
+      
+    }
+    setChks(copyChks);
+    }
+  }, [chkAll])
+
+  // 제목줄의 체크박스 변경시 실행되는 함수
+  function changeChkAll(){
+    setChkAll(!chkAll);
+  }
+
+
   return (
     <div className='cart-list-div'>
       <div className='cart-table-div'>
@@ -37,7 +70,7 @@ const CartList = () => {
           <thead>
             <tr>
               <td>No</td>
-              <td><input type='checkbox' checked={true} /></td>
+              <td><input type='checkbox' checked={chkAll} onChange={(e)=>{changeChkAll()}}/></td>
               <td>상품정보</td>
               <td>가격</td>
               <td>수량</td>
@@ -52,7 +85,14 @@ const CartList = () => {
                 return (
                   <tr key={i}>
                     <td>{cartList.length - i}</td>
-                    <td><input type='checkbox' checked={true}/></td>
+                    <td><input type='checkbox' 
+                        checked={chks[i]}
+                        onChange={(e)=>{
+                          const copyChks = [...chks];
+                          copyChks[i] = !copyChks[i];
+                          setChks(copyChks);
+                        }}
+                    /></td>
                     <td className='img-td'>
                       <img src={`http://localhost:8080/upload/${cart.itemVO.imgList[0].attachedFileName}`}/>
                       <span>{cart.itemVO.itemName}</span>
