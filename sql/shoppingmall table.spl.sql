@@ -74,6 +74,13 @@ ORDER BY
 	AND IS_MAIN = 'Y';
 	
 	
-	SELECT * FROM shop_cart;
+SELECT * FROM shop_cart;
 
-	DROP TABLE shop_cart;
+DROP TABLE shop_cart;
+	
+	
+DELETE FROM shop_cart
+WHERE MEM_ID = 'java'
+AND ITEM_CODE = 1;
+	
+	
