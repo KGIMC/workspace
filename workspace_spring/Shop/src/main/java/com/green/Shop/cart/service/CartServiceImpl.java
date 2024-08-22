@@ -15,7 +15,20 @@ public class CartServiceImpl implements CartService{
     //장바구니 등록
     @Override
     public void insertCart(CartVO cartVO) {
-        sqlSession.insert("cartMapper.insertCart", cartVO);
+        // 내 장바구니에 상품 존재 여부 확인
+        CartVO vo = sqlSession.selectOne("cartMapper.checkCart", cartVO);
+
+        // 조회가 안되면 vo가 null - 이때 insert / 반대면 update
+
+        // 없으면 insert
+        if(vo == null) {
+            sqlSession.insert("cartMapper.insertCart", cartVO);
+        }
+        // 있으면 update
+        else {
+            sqlSession.update("cartMapper.updateCartCntWhenReg", cartVO);
+        }
+
     }
 
     @Override

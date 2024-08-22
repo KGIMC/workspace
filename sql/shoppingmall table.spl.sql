@@ -64,23 +64,27 @@ ORDER BY
     C.CART_DATE DESC;
 
 
-	SELECT cart_code, cart_cnt, mem_id, 
-				DATE_FORMAT(cart_date, '%Y-%m-%d %H-%i')
+SELECT cart_code, cart_cnt, mem_id, 
+DATE_FORMAT(cart_date, '%Y-%m-%d %H-%i')
 			, item_name, item_price, attached_file_name
-	FROM shop_cart c, shop_item i, item_img img
-	WHERE c.item_code = i.item_code
-	AND c.item_code = img.item_code
-	AND MEM_ID = 'java'
-	AND IS_MAIN = 'Y';
-	
-	
-SELECT * FROM shop_cart;
+FROM shop_cart c, shop_item i, item_img img
+WHERE c.item_code = i.item_code
+AND c.item_code = img.item_code
+AND MEM_ID = 'java'
+AND IS_MAIN = 'Y';
 
-DROP TABLE shop_cart;
-	
-	
-DELETE FROM shop_cart
-WHERE MEM_ID = 'java'
-AND ITEM_CODE = 1;
-	
-	
+-- 내 장바구니에 현재 선택한 상품이 있는지 확인하는 쿼리
+SELECT CART_CODE
+FROM SHOP_CART
+WHERE ITEM_CODE = 1
+AND MEM_ID = 'JAVA';
+
+-- 내 장바구니 상품의 수량 및 날짜 변경
+-- UPDATE 할때는 DATE 값이 자동으로 입력되지 않음 ( DEFALUT 값 )
+UPDATE TABLE shop_cart
+SET CART_CNT = CART_CNT + 1, CART_DATE
+WHERE ITEM_CODE = 1
+AND MEM_ID = 'JAVA';	
+
+DELETE FROM shop_cart;
+DELETE FROM shop_item;

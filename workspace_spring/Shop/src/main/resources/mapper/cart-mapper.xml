@@ -40,7 +40,21 @@
         )
     </insert>
 
+    <!-- 장바구니에 등록 전 -->
+    <select id="checkCart" resultMap="cart">
+        SELECT CART_CODE
+        FROM SHOP_CART
+        WHERE ITEM_CODE = #{itemCode}
+        AND MEM_ID = #{memId};
+    </select>
 
+    <!-- 장바구니에 상품 등록 시 수량 업데이트 -->
+    <update id="updateCartCntWhenReg">
+        UPDATE shop_cart
+        SET CART_CNT = CART_CNT + #{cartCnt}, CART_DATE = NOW()
+        WHERE ITEM_CODE = #{itemCode}
+        AND MEM_ID = #{memId};
+    </update>
 
 
 </mapper>

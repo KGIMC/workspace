@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react'
 import './ItemDetail.css'
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ItemDetail = () => {
+  const navigate = useNavigate();
+
   const {itemCode} = useParams();
 
   //조회한 상세 정보 데이터를 저장할 state 변수
@@ -84,7 +86,7 @@ const ItemDetail = () => {
 
       //취소를 선택하면 장바구니 목록 페이지로 이동
       if(!result){
-
+        
       }
 
     })

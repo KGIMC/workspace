@@ -136,7 +136,7 @@ function App() {
 
             {/* 이달의 매출 */}
             <Route path='recordOfMonth' element={ <RecordOfMonth /> }/>
-             
+
           </Route>
         </Routes>
       </div>
