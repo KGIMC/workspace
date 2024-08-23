@@ -1,0 +1,58 @@
+import React, { useState } from 'react'
+import './CarManage.css';
+import axios from 'axios';
+
+const CarManage = () => {
+
+  // 차량 정보 저장할 state 변수
+  const [carInfo, setCarInfo] = useState({
+    modelName : '',
+    price : 0,
+    brand : ''
+  });
+
+
+  function insertCar(){
+    axios.post('/car/insert', carInfo)
+    .then((res)=>{
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
+  }
+
+  function changeSelect(e){
+    setCarInfo({
+      ...carInfo,
+      [e.target.name] : e.target.value
+    })
+  }
+
+  return (
+    <div className='main-div'>
+      <h4>- 차량 등록</h4>
+      <div className='car-div'>
+        <span>제조사</span>
+          <span>
+            <select name='brand' onChange={(e)=>{changeSelect(e)}}>
+              <option value={'현대'}>현대</option>
+              <option value={'기아'}>기아</option>
+              <option value={'쌍용'}>쌍용</option>
+            </select>
+          </span>
+        <span>모델명</span>
+          <span>
+            <input type='text' name='modelName' onChange={(e)=>{changeSelect(e)}}/>
+          </span>
+        <span>차랑가격</span>
+          <span>
+            <input type='text' name='price' onChange={(e)=>{changeSelect(e)}}/>
+          </span>
+      </div>
+      <div><button type='button' onClick={(e)=>{insertCar()}}>등록</button></div>
+      <h4>- 차량 목록</h4>
+    </div>
+  )
+}
+
+export default CarManage;

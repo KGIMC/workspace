@@ -20,7 +20,7 @@ CREATE TABLE MY_MEMBER (
 INSERT INTO MY_MEMBER (MEM_NUM, MEM_ID, MEM_PW, MEM_NAME, MEM_AGE, MEM_ADDRESS) 
 VALUES (1, 'JAVA', '1234', 'J', 20, 'JAVA@JAVA');
 
-DELETE FROM MY_MEMBER;
+DELETE FROM my_member;
 
 -- 3. 위에서 생성한 MY_MEMBER에서 회원번호가 1번인 회원의 이름을 
 -- ‘김자바’로, ID는 ‘KIMJAVA’로 수정하는 쿼리문을 작성하세요.
