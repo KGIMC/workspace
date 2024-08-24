@@ -15,6 +15,7 @@ const CarManage = () => {
   function insertCar(){
     axios.post('/car/insert', carInfo)
     .then((res)=>{
+      console.log(res.data)
     })
     .catch((error)=>{
       console.log(error)
