@@ -18,12 +18,12 @@ CREATE TABLE ITEM_CATEGORY(
 	, CATE_NAME VARCHAR(50) NOT NULL UNIQUE
 );
 
--- 3. 상품 정보 테이블
+-- 상품 정보 테이블 ( Insert )
 INSERT INTO item_category VALUES (1, '인터넷/IT');
 INSERT INTO item_category VALUES (2, '소설/에세이');
 INSERT INTO item_category VALUES (3, '자기개발');
 
--- 4. 상품 이미지 정보 테이블
+-- 3. 상품 이미지 정보 테이블
 CREATE TABLE SHOP_ITEM(
 	ITEM_CODE INT AUTO_INCREMENT PRIMARY KEY
 	, ITEM_NAME VARCHAR(50) NOT NULL UNIQUE
