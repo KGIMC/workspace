@@ -3,10 +3,9 @@ package com.green.Car.controller;
 import com.green.Car.service.CarService;
 import com.green.Car.vo.CarVO;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/car")
@@ -16,9 +15,11 @@ public class CarController {
     private CarService carService;
 
 
+    // 차량 등록
     @PostMapping("/insert")
     public void insertCar(@RequestBody CarVO carVO){
         carService.insertCar(carVO);
         System.out.println(carVO);
     }
+
 }

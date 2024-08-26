@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="423fd3c6-5ea9-41a3-add9-a9b74a7f5bb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../workspace_java/Test/src/Test/Test1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../workspace_java/Test/src/Test/Test2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../workspace_java/Test/src/Test/Test4.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workspace_htmlcss/css/test.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workspace_htmlcss/css/test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workspace_htmlcss/css/test1.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workspace_htmlcss/css/test1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../workspace_java/JavaBasic/src/test/Test2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace_java/JavaBasic/src/test/Test2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace_python/8월27일 시험문제.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace_python/test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace_python/test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace_python/라즈베리파이 사물 제어 IOT 평가.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace_python/라즈베리파이 사물 제어 IOT 평가.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace_python/반복문.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace_python/반복문.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace_python/조건문.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace_python/조건문.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../workspace_python/판다스/01.DataFrame.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/../workspace_python/판다스/01.DataFrame.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Car/src/main/frontend/src/Pages/CarManage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Car/src/main/frontend/src/Pages/CarManage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +29,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "workspace",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/01-STUDY/dev/workspace/workspace_spring"
+    "last_opened_file_path": "D:/01-STUDY/dev/workspace/workspace_spring/Car"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
