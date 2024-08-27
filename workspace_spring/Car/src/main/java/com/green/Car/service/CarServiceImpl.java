@@ -19,7 +19,10 @@ public class CarServiceImpl implements CarService{
         sqlSession.insert("carMapper.insertCar", carVO);
     }
 
-
+    @Override
+    public List<CarVO> getCarList() {
+       return sqlSession.selectList("carMapper.getCarList");
+    }
 
 
 }

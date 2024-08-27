@@ -81,3 +81,5 @@ SELECT board_num
 , (SELECT mem_role FROM board_member WHERE mem_id = board.mem_id) AS MEM_ROLE
 FROM board
 WHERE board_num < 40;
+
+

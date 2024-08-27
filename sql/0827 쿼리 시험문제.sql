@@ -55,6 +55,14 @@ ORDER BY EMPNO DESC;
 -- 30일 때는 ‘개발부’, 그 외의 값은 ‘생산부’로 조회되어야 한다. 
 -- 조인 사용하는 문제 아님. CASE 사용.
 
+SELECT empno, ename, deptno, 
+case
+when deptno = 10 then '인사부'
+when deptno = 20 then '영업부'
+when deptno = 30 then '개발부'
+ELSE '생산부'
+END
+FROM emp;
 
 
 -- 7. 1월에 입사한 모든 사원의 사번, 이름, 입사일, 커미션을 입사일 
@@ -77,10 +85,20 @@ ORDER BY SUM(SAL) ASC;
 
 
 -- 9. 서브쿼리를 사용하여 부서명이 ‘인사부’인 사원의 
--- 사번, 이름, 입사일, 급여, 부서번호, 부서명을 조회하는 쿼리문을 작성해보자. 
+-- 사번, 이름, 입사일, 급여, 부서번호, 부서명을 조회하는 쿼리문을 작성해보자.
+
+SELECT EMPNO, ENAME, HIREDATE, SAL, DEPTNO,
+       (SELECT DNAME FROM DEPT WHERE DEPTNO = E.DEPTNO) AS DNAME
+FROM EMP E
+WHERE DEPTNO = (SELECT DEPTNO FROM DEPT WHERE DNAME = '인사부');
 
 
--- 10. 조인을 사용하여 부서명이 ‘인사부’가 아니고 
--- 급여가 500이상인 사원의 사번, 이름, 입사일, 급여, 부서번호, 부서명을 조회하는 쿼리문을 작성해보자. 
+-- 10. 급여가 500이상인 사원의 사번, 이름, 입사일, 급여, 부서번호, 부서명을 
+-- 조회하는 쿼리문을 작성해보자. 
 -- 단, 정렬은 사번 기준 내림차순으로 정렬 후 사원 이름 기준 오름차순으로 정렬한다.
 
+SELECT empno, ename, hiredate, sal, d.deptno, dname
+FROM emp e, dept d
+WHERE sal > 500
+AND e.DEPTNO = d.deptno
+ORDER BY empno DESC, ename ASC;

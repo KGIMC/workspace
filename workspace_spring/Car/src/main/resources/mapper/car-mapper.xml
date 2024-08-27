@@ -10,6 +10,7 @@
         <result column="BRAND"      property="brand"/>
     </resultMap>
 
+        <!-- 차량 등록 -->
         <insert id="insertCar">
             INSERT INTO CAR_INFO (
                 MODEL_NAME
@@ -23,6 +24,14 @@
             );
         </insert>
 
+        <!-- 차량 조회 -->
+        <select id="getCarList" resultMap="car">
+            SELECT model_num
+                 , model_name
+                 , price
+                 , brand
+            FROM car_info
+        </select>
 </mapper>
 
 

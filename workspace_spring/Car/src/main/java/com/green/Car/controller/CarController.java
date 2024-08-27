@@ -22,4 +22,10 @@ public class CarController {
         System.out.println(carVO);
     }
 
+    // 등록 차량 조회
+    @GetMapping("/getCarList")
+    public List<CarVO> getCarList(){
+        return carService.getCarList();
+    }
+
 }

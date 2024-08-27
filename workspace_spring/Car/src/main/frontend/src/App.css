@@ -4,7 +4,7 @@
 
 .header{
   margin: 0 auto;
-  width: 60%;
+  width: 800px;
   display: flex;
   margin-top: 20px;
 }
@@ -20,5 +20,7 @@
 .main-div{
   border: 1px solid black;
   margin: 0 auto;
-  width: 60%;
+  width: 800px;
 }
+
+

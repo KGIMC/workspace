@@ -9,7 +9,6 @@ import SaleList from './Pages/SaleList';
 
 function App() {
 
-
   return (
     <div className="App">
       {/* 헤더 관리 부분 */}
@@ -17,16 +16,16 @@ function App() {
 
       <Routes>
         {/* 홈 페이지 */}
-        <Route path='home' element={<Home/>}/>
+        <Route path='/home' element={<Home/>}/>
 
         {/* 차량관리 페이지 */}
-        <Route path='carManage' element={<CarManage/>}/>
+        <Route path='/carManage' element={<CarManage/>}/>
           
         {/* 판매 정보 등록 페이지 */}
-        <Route path='saleInfoInsert' element={<SaleInfoInsert/>}/>
+        <Route path='/saleInfoInsert' element={<SaleInfoInsert />}/>
 
         {/* 판매 목록 페이지 */}
-        <Route path='saleList' element={<SaleList/>}/>
+        <Route path='/saleList' element={<SaleList/>}/>
 
       </Routes>
     </div>
