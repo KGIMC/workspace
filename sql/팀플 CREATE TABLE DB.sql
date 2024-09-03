@@ -24,8 +24,16 @@ CREATE TABLE patient(
    , ADDRESS VARCHAR(100)
 );
 
+-- 3. 진료 수납정보 테이블 , 상태 : 대기중, 진료중
+CREATE TABLE recep_info(
+   recep_num INT PRIMARY KEY AUTO_INCREMENT,
+   pat_num INT NOT NULL,
+   recep_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+   recep_status VARCHAR(20) NOT NULL,
+   FOREIGN KEY (pat_num) REFERENCES patient(pat_num)
+);
 
--- 3.수납정보 테이블(수납 번호, 환자넘버, 진료넘버(forein), 결제일)
+-- 4.수납정보 테이블(수납 번호, 환자넘버, 진료넘버(forein), 결제일)
 CREATE TABLE DESK(
    DESK_NUM INT PRIMARY KEY NOT NULL AUTO_INCREMENT
    , PAT_NUM INT REFERENCES PATIENT(PAT_NUM) ON DELETE CASCADE
@@ -33,14 +41,14 @@ CREATE TABLE DESK(
    -- 금액정도 추가합시다.
 );
 
--- 4.의사정보 테이블(면호 번호, 의사 이름, 담당과)
+-- 5.의사정보 테이블(면호 번호, 의사 이름, 담당과)
 CREATE TABLE DOCTOR(
    DOC_LINUM INT PRIMARY KEY NOT NULL
    , DOC_NAME VARCHAR(50) NOT NULL
    , DEPT VARCHAR(30) NOT NULL
 );
    
--- 5. 입원 정보 테이블(입원일련번호, 입 퇴원 날짜, 호실,  수술날짜, 입원당사자인 환자번호)
+-- 6. 입원 정보 테이블(입원일련번호, 입 퇴원 날짜, 호실,  수술날짜, 입원당사자인 환자번호)
 CREATE TABLE info_date(
    DATE_NUM INT NOT NULL PRIMARY KEY AUTO_INCREMENT
    , IN_HOPI DATETIME NOT NULL
@@ -50,7 +58,7 @@ CREATE TABLE info_date(
    , PAT_NUM INT REFERENCES patient(PAT_NUM) ON DELETE CASCADE
 );
 
--- 6. 처방전 테이블(처방전 번호, 진료정보, 처방한 약 이름)
+-- 7. 처방전 테이블(처방전 번호, 진료정보, 처방한 약 이름)
 CREATE TABLE INFO_RECIPE(
    RECIPE_NUM INT NOT NULL PRIMARY KEY AUTO_INCREMENT
    , TRE_NUM INT REFERENCES info_treat(TRE_NUM) ON DELETE CASCADE
@@ -59,7 +67,7 @@ CREATE TABLE INFO_RECIPE(
    -- 처방일 필요?
 );
 
--- 7. 진료정보 테이블:pk 환자번호, 병명, 담당의사번호, 의사소견, 진료일일자, 입원여부(날짜로 확인))
+-- 8. 진료정보 테이블:pk 환자번호, 병명, 담당의사번호, 의사소견, 진료일일자, 입원여부(날짜로 확인))
 CREATE TABLE info_treat(
    TRE_NUM INT PRIMARY KEY NOT NULL AUTO_INCREMENT
    , PAT_NUM INT NOT NULL REFERENCES patient(PAT_NUM) ON DELETE CASCADE
@@ -69,3 +77,14 @@ CREATE TABLE info_treat(
    , TRE_DATE DATETIME NOT NULL
    , DATE_NUM INT REFERENCES info_date(DATE_NUM) ON DELETE CASCADE
 );
+
+
+-- 9. 진료 상세 가격 테이블:PK, 진찰료, 입원료, 식대, 주사료 
+CREATE TABLE INFO_PRICE(
+   PRI_NUM INT PRIMARY KEY NOT NULL AUTO_INCREMENT
+   , TRE_PRICE INT NOT NULL
+   , DATE_PRICE INT
+   , EAT_PRICE INT
+   , SHOT_PRICE INT
+   , TRE_NUM INT NOT NULL REFERENCES info_treat(TRE_NUM) ON DELETE CASCADE
+)
