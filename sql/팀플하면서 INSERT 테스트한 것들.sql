@@ -1,6 +1,3 @@
-SELECT * FROM patient;
-SELECT * FROM RECEP_INFO;
-
 -- 신규 등록하는 환자 번호 생성하는 쿼리
 SELECT IFNULL(MAX(PAT_NUM), 0)+ 1 FROM patient;
         
@@ -24,9 +21,3 @@ WHERE PAT_NAME = '신규환자' AND CITIZEN_NUM = 14;
 SELECT r.recep_num, p.pat_name, p.age, r.recep_status
 FROM patient p, recep_info r
 WHERE r.pat_num = p.pat_num;
-
-ALTER TABLE recep_info 
-ADD dept VARCHAR(30);
-
-SELECT * FROM recep_info;
-SELECT * FROM patient;
