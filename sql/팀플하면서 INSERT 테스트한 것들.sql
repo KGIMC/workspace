@@ -1,23 +1,32 @@
 -- 신규 등록하는 환자 번호 생성하는 쿼리
 SELECT IFNULL(MAX(PAT_NUM), 0)+ 1 FROM patient;
-        
--- 신규 방문자의 정보 등록
-INSERT INTO patient 
-(PAT_NUM, PAT_NAME, PAT_EMAIL, AGE, GENDER, CITIZEN_NUM, ADDRESS)
-VALUES (4, '이환자', 'ab@gmail.com', 11, '여자', '2345', '어딘가');
 
--- 신규 방문자 예약 등록과 동시에 접수 정보 등록 
-INSERT INTO recep_info 
-(pat_num, recep_status) 
-VALUES (1, '대기중');
+-- 신규 방문자 접수 등록하는 쿼리
+-- patientMapper
+INSERT INTO patient (PAT_NUM, PAT_NAME, PAT_EMAIL, AGE, GENDER, CITIZEN_NUM, ADDRESS)
+VALUES (4, '4번환자', 'abcd', 40, '남', '1', '울산어딘가');
 
--- 방문한적 있는 환자가 접수 등록할 경우 ( 환자 기록 조회하고, insert 하기 )
-INSERT INTO recep_info (pat_num, recep_status)
-SELECT PAT_NUM, '대기중'
+-- 신규 방문자 접수 동시에 접수 정보 등록
+-- patientMapper
+INSERT INTO recep_info (pat_num, recep_status, doc_linum) 
+VALUES (1, '대기중', 1);
+
+-- 방문 기록 조회하고, 방문 기록 존재하면 접수 등록
+INSERT INTO recep_info (pat_num, doc_linum, recep_status)
+SELECT PAT_NUM, 1, '대기중'
 FROM patient
-WHERE PAT_NAME = '신규환자' AND CITIZEN_NUM = 14;
+WHERE PAT_NAME = '4번환자' AND CITIZEN_NUM = 123145;
 
--- 대기순번, 이름, 나이, 진료현황이 나오게 select하면 됨.
-SELECT r.recep_num, p.pat_name, p.age, r.recep_status
-FROM patient p, recep_info r
-WHERE r.pat_num = p.pat_num;
+
+-- 재방문자 조회
+SELECT pat_num
+FROM patient
+WHERE pat_name = '1번환자' AND citizen_num = 10;
+
+-- 재방문 접수
+INSERT INTO recep_info (pat_num, recep_status, doc_linum) 
+VALUES (1, '대기중', 1);
+
+SELECT * FROM patient;
+SELECT * FROM recep_info;
+

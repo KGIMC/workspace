@@ -24,7 +24,7 @@ CREATE TABLE PATIENT (
    ADDRESS VARCHAR(100)
 );
 
--- 3. 진료 수납정보 테이블
+-- 3. 진료정보 테이블
 CREATE TABLE recep_info(
    recep_num INT PRIMARY KEY AUTO_INCREMENT,
    pat_num INT NOT NULL,
