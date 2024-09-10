@@ -17,16 +17,19 @@ SELECT PAT_NUM, 1, '대기중'
 FROM patient
 WHERE PAT_NAME = '4번환자' AND CITIZEN_NUM = 123145;
 
-
 -- 재방문자 조회
 SELECT pat_num
 FROM patient
-WHERE pat_name = '1번환자' AND citizen_num = 10;
+WHERE pat_name = '1번환자' AND citizen_num = 1; 
+-- 이름, 주민등록번호가 일치해야 번호, 이름, 주민번호가 조회됨.
 
 -- 재방문 접수
 INSERT INTO recep_info (pat_num, recep_status, doc_linum) 
-VALUES (1, '대기중', 1);
+VALUES (6, '대기중', 2);
 
-SELECT * FROM patient;
-SELECT * FROM recep_info;
-
+-- 환자 대기 목록 조회
+SELECT p.PAT_NUM, PAT_NAME, RECEP_DATE, RECEP_STATUS
+FROM patient p, recep_info r
+WHERE p.pat_num = r.pat_num
+AND p.pat_num = 1
+GROUP BY p.PAT_NUM, p.PAT_NAME, r.RECEP_STATUS;
