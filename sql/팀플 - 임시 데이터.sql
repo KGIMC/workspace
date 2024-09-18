@@ -16,15 +16,3 @@ INSERT INTO info_treat (PAT_NUM, DISEASE, DOC_LINUM, ABOUT_PAT, TRE_DATE)
 VALUES (1, 'a', 21, 'aa', '2024-09-01 09:30:00'),
 		 (2, 'b', 22, 'bb', '2024-09-05 11:00:00'),
 		 (3, 'c', 23, 'cc', '2024-09-08 14:00:00');
-
-
-
-
-
-
-SELECT p.PAT_NUM, p.PAT_NAME, r.RECEP_DATE, r.RECEP_STATUS
-FROM patient p
-JOIN recep_info r ON p.pat_num = r.pat_num
-WHERE p.pat_num = 1
-ORDER BY r.RECEP_DATE DESC
-LIMIT 1;
