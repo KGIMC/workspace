@@ -24,7 +24,7 @@ CREATE TABLE PATIENT (
    ADDRESS VARCHAR(100)
 );
 
--- 3. 진료정보 테이블 -- 수정
+-- 3. 진료 방문 정보 테이블 -- 수정 (대기중 환자 정보)
 CREATE TABLE recep_info(
    recep_num INT PRIMARY KEY AUTO_INCREMENT,
    pat_num INT NOT NULL,
@@ -57,8 +57,8 @@ CREATE TABLE DOCTOR(
    doc_linum INT PRIMARY KEY NOT NULL
    , doc_name VARCHAR(50) NOT NULL
    , dept_NUM INT NOT NULL REFERENCES MEDI_DEPT (DEPT_NUM)
+   , doc_pw VARCHAR(50) NOT NULL
 );
-
 
 -- 7. 입원 정보 테이블(입원일련번호, 입 퇴원 날짜, 호실,  수술날짜, 입원당사자인 환자번호)
 CREATE TABLE info_date(
@@ -97,4 +97,4 @@ CREATE TABLE INFO_PRICE(
    , EAT_PRICE INT
    , SHOT_PRICE INT
    , TRE_NUM INT NOT NULL REFERENCES info_treat(TRE_NUM) ON DELETE CASCADE
-)
+);
