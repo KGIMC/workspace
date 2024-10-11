@@ -10,14 +10,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("memberService")
-@RequiredArgsConstructor // final이 붙어있는 변수를 매개변수로 갖는 생성자
+@Service
+@RequiredArgsConstructor
 public class MemberServiceImpl implements MemberService{
-    //생성자 주입
-    //기존과 달리진점
-    // 1. 선언한 객체 위의 어노테이션 사라짐
-    // 2. 선언한 변수에 final 키워드가 붙는다
-    // 3. 클래스에  @RequiredArgsConstructor 아노테이션이 붙는다.
     private final SqlSessionTemplate sqlSession;
 
     @Override

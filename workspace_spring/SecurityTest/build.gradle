@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-	// jwt token // security 할때 버전은 0.12.3 사용할 것
+	//jwt token
 	implementation 'io.jsonwebtoken:jjwt-api:0.12.3'
 	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.3'
 	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.3'
