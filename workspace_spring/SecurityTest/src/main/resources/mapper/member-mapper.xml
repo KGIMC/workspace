@@ -3,10 +3,16 @@
 
 <!-- 해당 파일에 모든 쿼리문을 작성 -->
 <mapper namespace="memberMapper">
+    <resultMap id="member" type="com.green.SecurityTest.vo.MemberVO">
+        <id column="MEM_ID"         property="memId" />
+        <result column="MEM_PW"     property="memPw"/>
+        <result column="MEM_NAME"   property="memName"/>
+        <result column="MEM_ROLE"   property="memRole"/>
+    </resultMap>
 
     <insert id="join">
         INSERT INTO SECURITY_MEMBER (
-            MEM_Id
+            MEM_ID
             , MEM_PW
             , MEM_NAME
             , MEM_ROLE
@@ -17,6 +23,16 @@
             , #{memRole}
         )
     </insert>
+
+    <!--로그인하려는 회원의 정보 조회-->
+    <select id="getMemberForLogin" resultMap="member">
+        SELECT MEM_ID
+            , MEM_PW
+            , MEM_ROLE
+        FROM SECURITY_MEMBER
+        WHERE MEM_ID = #{memId}
+    </select>
+
 </mapper>
 
 

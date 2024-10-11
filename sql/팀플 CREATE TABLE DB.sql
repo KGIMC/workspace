@@ -1,4 +1,4 @@
--- 1.회원 테이블
+-- 1. 회원 테이블
 CREATE TABLE MEMBER(
    MEM_NUM INT PRIMARY KEY NOT NULL AUTO_INCREMENT 
    , MEM_ID VARCHAR(50) NOT NULL
@@ -13,7 +13,8 @@ CREATE TABLE MEMBER(
    , MEM_ROLE VARCHAR(50) NOT NULL DEFAULT('USER')
 );
         
--- 2.환자정보 테이블(환자넘버, 환자이름, 나이, 성별, 주민번호, 주소, )
+-- 2. 환자정보 테이블 
+-- 환자번호, 이름, 이메일, 나이, 성별, 주민등록번호, 주소 
 CREATE TABLE PATIENT (
    PAT_NUM INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
    PAT_NAME VARCHAR(100) NOT NULL,
@@ -24,7 +25,9 @@ CREATE TABLE PATIENT (
    ADDRESS VARCHAR(100)
 );
 
--- 3. 진료 방문 정보 테이블 -- 수정 (대기중 환자 정보)
+-- 3. 진료 방문 정보 테이블
+-- 대기중인 환자 정보
+-- 재방문번호, 환자번호, 의사번호, 진료날짜, 진료상태(대기중, 진료중)
 CREATE TABLE recep_info(
    recep_num INT PRIMARY KEY AUTO_INCREMENT,
    pat_num INT NOT NULL,
@@ -35,23 +38,25 @@ CREATE TABLE recep_info(
    FOREIGN KEY (doc_linum) REFERENCES DOCTOR(DOC_LINUM) ON DELETE CASCADE
 );
 
--- 4. 수납정보 테이블(수납 번호, 진료넘버(forein), 결제일, 진료비, 결제여부(Y, N))
+-- 4. 수납정보 테이블
+-- 수납번호, 진료번호, 수납일, 진료비, 결제여부(Y, N)
 CREATE TABLE DESK(
    DESK_NUM INT PRIMARY KEY NOT NULL AUTO_INCREMENT
    , TRE_NUM INT REFERENCES info_treat(TRE_NUM) ON DELETE CASCADE
-   , DESK_DATE DATETIME
+   , DESK_DATE DATETIME DEFAULT CURRENT_TIMESTAMP
    , DESK_PRICE INT 
    , IS_PAY VARCHAR(10) DEFAULT 'N'
 );
 
-
 -- 5. 진료과 정보
+-- 담당과번호, 담당과이름
 CREATE TABLE MEDI_DEPT (
 	DEPT_NUM INT AUTO_INCREMENT PRIMARY KEY
 	, DEPT_NAME VARCHAR(100) NOT NULL
 );
 
--- 6.의사정보 테이블(면호 번호, 의사 이름, 담당과)
+-- 6.의사정보 테이블
+-- 의사번호, 의사 로그인시 비밀번호, 의사이름, 담당과번호
 CREATE TABLE DOCTOR(
    doc_linum INT PRIMARY KEY NOT NULL
    , doc_pw VARCHAR(50) NOT NULL
@@ -59,45 +64,26 @@ CREATE TABLE DOCTOR(
    , dept_NUM INT NOT NULL REFERENCES MEDI_DEPT (DEPT_NUM)
 );
 
--- 7. 입원 정보 테이블(입원일련번호, 입퇴원 날짜, 호실,  수술날짜, 입원당사자인 환자번호)
-CREATE TABLE info_date(
-   DATE_NUM INT NOT NULL PRIMARY KEY AUTO_INCREMENT
-   , IN_HOPI DATETIME NOT NULL
-   , OUT_HOPI DATETIME
-   , ROOM_NUM INT
-   , OPER_DATE DATETIME
-   , PAT_NUM INT REFERENCES patient(PAT_NUM) ON DELETE CASCADE
-);
-
--- 8. 처방전 테이블(처방전 번호, 진료정보, 처방한 약 이름)
+-- 7. 처방전 테이블
+-- 처방전번호, 진료번호, 처방약이름
 CREATE TABLE INFO_RECIPE(
    RECIPE_NUM INT NOT NULL PRIMARY KEY AUTO_INCREMENT
    , TRE_NUM INT REFERENCES info_treat(TRE_NUM) ON DELETE CASCADE
    , MEDI_NAME VARCHAR(30)
 );
 
--- 9. 진료정보 테이블:pk 환자번호, 병명, 담당의사번호, 의사소견, 진료일일자, 입원여부(날짜로 확인))
+-- 8. 진료정보 테이블
+-- 진료번호, 환자번호, 병명, 의사번호, 진단내역, 진료날짜
 CREATE TABLE info_treat (
    TRE_NUM INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
    PAT_NUM INT NOT NULL REFERENCES patient(PAT_NUM) ON DELETE CASCADE,
    DISEASE VARCHAR(50) NOT NULL REFERENCES DISEASE_CATEGORY(DIS_CODE) ON DELETE CASCADE,
    DOC_LINUM INT NOT NULL REFERENCES doctor(DOC_LINUM) ON DELETE CASCADE,
    ABOUT_PAT VARCHAR(100),
-   TRE_DATE DATETIME NOT NULL,
-   DATE_NUM INT REFERENCES info_date(DATE_NUM) ON DELETE CASCADE
+   TRE_DATE DATETIME NOT NULL
 );
 
--- 10. 진료 상세 가격 테이블:PK, 진찰료, 입원료, 식대, 주사료 
-CREATE TABLE INFO_PRICE(
-   PRI_NUM INT PRIMARY KEY NOT NULL AUTO_INCREMENT
-   , TRE_PRICE INT NOT NULL
-   , DATE_PRICE INT
-   , EAT_PRICE INT
-   , SHOT_PRICE INT
-   , TRE_NUM INT NOT NULL REFERENCES info_treat(TRE_NUM) ON DELETE CASCADE
-);
-
--- 11. 관리자 테이블
+-- 9. 관리자 테이블
 CREATE TABLE ADMIN(
    ADMIN_ID VARCHAR(30) UNIQUE NOT NULL
    , ADMIN_PW VARCHAR(30) NOT NULL
@@ -106,24 +92,24 @@ CREATE TABLE ADMIN(
    , ADMIN_ROLE VARCHAR(30)   
 );
 
+-- 9-1
 CREATE TABLE NURSE (
     nurse_id INT PRIMARY KEY NOT NULL,
     nurse_pw VARCHAR(20) NOT NULL,
     nurse_name VARCHAR(50) NOT NULL
 );
 
+-- 9-2
 CREATE TABLE STAFF (
     staff_id INT PRIMARY KEY NOT NULL,
     staff_pw VARCHAR(20) NOT NULL,
     staff_name VARCHAR(50) NOT NULL
 );
 
--- 14. 질병 데이터
--- DIS_CODE : 질병코드, DIS_NAME : 질병 이름, REC_PRICE : 진료비
-CREATE TABLE DISEASE_CATEGORY (
+-- 10. 질병 데이터
+-- 질병코드, 질병 이름, 진료비
+CREATE TABLE disease_category  (
 	DIS_CODE VARCHAR(10) PRIMARY KEY
 	, DIS_NAME VARCHAR(30) NOT NULL
 	, REC_PRICE INT NOT NULL
 );
-
-
