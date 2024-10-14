@@ -89,10 +89,11 @@ public class SecurityConfig {
                         "/",
                         "/member/loginForm",
                         "/member/joinForm",
-                        "/member/join", "/login", "/test1").permitAll()
-                    .requestMatchers("/test3").hasRole("USER")
-                    .requestMatchers("/test4").hasRole("ADMIN")
-                    .requestMatchers("/test5").hasAnyRole("MANAGER", "ADMIN")
+                        "/member/join", "/login",
+                        "/test1").permitAll()
+                    .requestMatchers("/test3").hasAuthority("USER")
+                    .requestMatchers("/test4").hasAuthority("ADMIN")
+                    .requestMatchers("/test5").hasAnyAuthority("MANAGER", "ADMIN")
                     .anyRequest().authenticated()
         );
 

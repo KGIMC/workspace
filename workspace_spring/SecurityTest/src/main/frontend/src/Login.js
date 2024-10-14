@@ -1,13 +1,20 @@
 
 import axios from 'axios';
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+
+
+
 
 const Login = () => {
+
   //입력한 로그인 정보를 저장할 state 변수
   const [loginData, setLoginData] = useState({
     memId : '',
     memPw : ''
   });
+
+  
 
   //입력한 정보로 로그인데이터 변경하는 함수
   const changeLoginData= (e) => {
@@ -23,8 +30,24 @@ const Login = () => {
     .then(res => {
       console.log('로그인 성공');
       console.log(res);
+
+      // 응답 헤더에 담긴 토큰을 localStorage 저장
+      // localStorage.setItem(저장할 이름, 저장할 데이터);
+      localStorage.setItem("Authorization", res.headers.authorization);
+
+      
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      // 오류코드가 401이면 다시 로그인
+      if(error.response.status == 401){
+        alert('아이디, 비번 확인~');
+        
+      } 
+      // 오류코드가 401이 아닐 때
+      else {
+        alert('알수없는 오류발생');
+      }
+    })
   }
 
   //아이디와 비번 input 태그의 name 속성은 반드시
