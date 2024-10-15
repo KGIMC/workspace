@@ -21,17 +21,27 @@ UPDATE recep_info
 SET recep_STATUS = '대기중';
 
 
-SELECT
-        p.pat_Num, p.pat_Name, p.age, p.pat_Email, p.gender, p.citizen_Num, 
-		  d.doc_Name, md.dept_Name, dc.dis_Name, t.about_Pat, t.tre_Date, 
-		  CASE WHEN is_Pay = 'N' THEN '미완료' ELSE '완료' END AS 결제여부
-        FROM patient p 
-        LEFT JOIN info_treat t ON p.pat_Num = t.pat_Num
-        LEFT JOIN doctor d ON t.doc_Linum = d.doc_Linum
-        LEFT JOIN medi_Dept md ON d.dept_Num = md.dept_Num
-        LEFT JOIN disease_category dc ON t.disease = dc.dis_Code
-        LEFT JOIN desk ON t.tre_Num = desk.tre_Num
-        WHERE
-        p.pat_Num = p.pat_num
-        AND is_pay = 'N';
-        
+
+-- 진단명 클릭 시 진단명 기준으로 상세내역 조회
+SELECT T.TRE_NUM, D.DIS_NAME, T.ABOUT_PAT, R.MEDI_NAME
+FROM INFO_TREAT T, INFO_RECIPE R, DISEASE_CATEGORY D
+WHERE T.TRE_NUM = R.TRE_NUM
+AND T.DISEASE = D.DIS_CODE
+AND T.TRE_NUM = 1;
+
+-- 환자번호 클릭 시 환자번호 기준으로 상세내역 조회
+SELECT T.TRE_NUM, T.PAT_NUM, T.DISEASE, T.DOC_LINUM, T.ABOUT_PAT, T.TRE_DATE,
+D.DESK_NUM, D.TRE_NUM, D.DESK_DATE, D.DESK_PRICE, D.IS_PAY,
+P.PAT_NUM, P.PAT_NAME, P.PAT_EMAIL, P.AGE, P.GENDER, P.CITIZEN_NUM, P.ADDRESS
+FROM info_treat t, desk d, patient p
+WHERE T.TRE_NUM = D.TRE_NUM
+AND P.PAT_NUM = T.PAT_NUM
+AND P.PAT_NUM = 2;
+
+
+-- treNum, pat_num, disease, doc_linum, about_pat, tre_date
+SELECT * FROM info_treat;
+-- desk_num, tre_num, desk_date, desk_price, is_pay
+SELECT * FROM desk;
+-- pat_num, pat_name, pat_email, age, gender, citizen_num, addrerss
+SELECT * FROM patient;

@@ -8,3 +8,12 @@ CREATE TABLE SECURITY_MEMBER (
 );
 
 SELECT * FROM security_member;
+
+-- 관리자는 id - admin / 1111 / 관리자권한 :: ADMIN
+-- 매니저는 id - manager / 1111 / 관리자권한 :: MANAGER
+-- 일반회   ID - user / 1111 / 관리자권한 :: USER
+
+
+UPDATE SECURITY_MEMBER
+SET MEM_ROLE = 'MANAGER'
+WHERE MEM_ID = 'manager';
