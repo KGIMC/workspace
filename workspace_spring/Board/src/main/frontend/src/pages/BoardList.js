@@ -140,9 +140,7 @@ const BoardList = ({loginInfo}) => {
         }
       </div>
         {/* 페이징 정보가 나오는 div */}
-        
-        
-        
+
         <div>
             {
               drawPagination()

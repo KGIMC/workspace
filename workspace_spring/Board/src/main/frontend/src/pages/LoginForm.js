@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import * as memberApi from '../apis/memberApi'
 import { useNavigate } from 'react-router-dom'
 
-//리액트는 화면을 새로고침 할 때마다 데이터가 초기화 되기 때문에
+// 리액트는 화면을 새로고침 할 때마다 데이터가 초기화 되기 때문에
 // 로그인을 했다는 정보를 일반적인 방식으로 저장해도 새로고침하면 로그인이 풀려버린다.
 
 //새로고침 해도 정보가 사라지는 않는 저장 공간을 두 개 제공.

@@ -26,29 +26,6 @@ const BoardDetail = ({loginInfo}) => {
     boardNum : boardNum
   });
   
-  //게시글 상세 정보 조회
-  // useEffect(() => {
-  //   boardApi.getBoardDetail(boardNum)
-  //   .then((res) => {
-  //     setBoardDetail(res.data);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   replyApi.getReplyList(boardNum)
-  //   .then((res) => {
-  //     setReplyList(res.data);
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-  // }, []);
-
-
-  
   //db에서 데이터 조회 여러개 동시에 실행하기
   useEffect(() => {
     axios.all([
